@@ -1,0 +1,51 @@
+==========================================
+DAY 01 — LINUX FUNDAMENTALS
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- SYSTEM INFORMATION ---
+uname -a                     # kernel & system info
+cat /etc/os-release          # distro name & version
+hostname                     # system hostname
+hostnamectl                  # OS, kernel & hostname details (may not work on minimal systems)
+
+--- USER & IDENTITY ---
+whoami                       # current logged-in user
+id                           # user ID, group ID & group membership
+
+--- PROCESS & RESOURCE MONITORING ---
+ps aux                       # list all running processes
+ps aux | head -5             # first 5 processes only
+ps aux --sort=-%mem | head -6   # top 5 memory-consuming processes
+ps aux | wc -l               # count total running processes
+free -h                      # memory usage, human-readable
+uptime                       # how long the system has been running
+
+--- FILESYSTEM NAVIGATION ---
+pwd                          # print current working directory
+ls                           # list files & directories
+ls -la                       # detailed listing including hidden files
+cd <directory>                # change directory
+cd ..                        # go up one directory level
+ls /                         # list root directory contents
+ls /etc | head -5            # peek into /etc config folder
+
+--- FILE & DIRECTORY OPERATIONS ---
+mkdir <directory>            # create a directory
+mkdir -p practice/logs/2024  # create nested directories in one shot
+touch <file>                  # create an empty file
+echo "<text>" > <file>       # write text into a file (overwrite)
+echo "<text>" >> <file>      # append text into a file
+cat <file>                    # display file contents
+
+--- KEY FILES TO KNOW ---
+/etc/passwd                  # list of user accounts (readable by all)
+/etc/shadow                  # hashed passwords (root-only)
+/etc/os-release               # distro name & version info
+/proc/cpuinfo                 # live CPU info
+/proc/meminfo                 # live memory info
+
+==========================================
+END OF DAY 01 COMMAND SHEET
+==========================================
