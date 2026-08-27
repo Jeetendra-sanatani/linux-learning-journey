@@ -1,0 +1,55 @@
+==========================================
+DAY 01 NOTES — Linux Fundamentals
+Date: ___________
+==========================================
+
+WHAT I LEARNED TODAY:
+- Linux = Kernel (brain) + Shell (translator) + Distro (full package)
+- Everything in Linux is treated as a file — even hardware and processes
+- Kali Linux is Debian-based, built specifically for security/pentesting work
+- The Linux filesystem is ONE single tree starting from root "/"
+  - /etc      = system configuration files
+  - /home     = user personal folders
+  - /var/log  = system logs
+  - /proc     = live kernel/process data (not real files on disk)
+- "Available" memory (not "free") is the number that actually matters
+  when checking how much RAM is left to use
+
+COMMANDS I PRACTICED:
+[ ] uname -a
+[ ] cat /etc/os-release
+[ ] whoami / id
+[ ] ps aux --sort=-%mem | head -6
+[ ] mkdir / touch / echo / cat
+[ ] pwd / ls / cd
+
+MY OWN OUTPUT (fill this in after running commands yourself):
+$ uname -a
+> 
+
+$ whoami
+> 
+
+$ id
+> 
+
+
+CHALLENGES — MY ANSWERS:
+1. Users with /bin/bash shell (from /etc/passwd):
+   > 
+
+2. Why "available" memory matters more than "free":
+   > 
+
+3. Command to create practice/logs/2024 in one line:
+   > 
+
+
+MISTAKES / ERRORS I HIT TODAY:
+- 
+
+QUESTIONS I STILL HAVE:
+- 
+
+TOMORROW'S TOPIC: Day 02 — File Permissions & Ownership
+==========================================
