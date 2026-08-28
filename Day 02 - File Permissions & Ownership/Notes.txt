@@ -1,0 +1,472 @@
+==========================================
+DAY 02 — FILE PERMISSIONS & OWNERSHIP
+Date: ___________
+==========================================
+
+
+🎯 WHAT I LEARNED TODAY
+
+- Linux me har file/directory ka ek owner aur group hota hai.
+- Permissions 3 categories ke liye hoti hain:
+
+  Owner  → file ka owner
+  Group  → assigned group
+  Others → baaki users
+
+- Permission structure:
+  [type][owner][group][others]
+
+  Example:
+  -rwxr-xr--
+
+  -    → Regular file
+  rwx  → Owner
+  r-x  → Group
+  r--  → Others
+
+
+🔐 PERMISSION VALUES
+  r = Read     = 4
+  w = Write    = 2
+  x = Execute  = 1
+  - = No permission = 0
+
+
+📊 COMMON PERMISSIONS
+  644 = rw-r--r--
+  755 = rwxr-xr-x
+  700 = rwx------
+  600 = rw-------
+  777 = rwxrwxrwx  ⚠️ Dangerous
+
+- 777 ka matlab Owner, Group aur Others ke paas
+  read + write + execute permissions hain.
+
+- Security assessment me unnecessary world-writable
+  files/directories ko investigate karna important hai.
+
+
+📁 DIRECTORY PERMISSIONS
+Files aur directories me permissions ka behavior
+thoda different hota hai.
+
+  r = directory contents list karna
+  w = files/directories create/delete karna
+  x = directory me enter/traverse karna
+
+Important:
+
+  Directory ko practically access karne ke liye
+  execute (x) permission important hoti hai.
+
+
+🔧 COMMANDS I PRACTICED
+
+[ ] ls -la
+[ ] ls -ld
+[ ] chmod u+x
+[ ] chmod 644
+[ ] chmod 755
+[ ] chmod 700
+[ ] chmod 600
+[ ] chown
+[ ] chgrp
+[ ] find -perm
+[ ] whoami
+[ ] id
+[ ] groups
+
+
+==========================================
+💻 PRACTICAL 01 — READ FILE PERMISSIONS
+==========================================
+
+Create a test file:
+$ touch scan.sh
+
+Check permissions:
+$ ls -la scan.sh
+
+Understand:
+
+  File type:
+  Owner:
+  Group:
+  Owner permissions:
+  Group permissions:
+  Others permissions:
+
+
+==========================================
+🔧 PRACTICAL 02 — CHMOD SYMBOLIC MODE
+==========================================
+
+Give execute permission to the owner:
+$ chmod u+x scan.sh
+
+Verify:
+$ ls -la scan.sh
+
+Remove execute permission:
+$ chmod u-x scan.sh
+
+Verify again:
+$ ls -la scan.sh
+
+
+==========================================
+🔢 PRACTICAL 03 — CHMOD NUMERIC MODE
+==========================================
+
+Set permission to 755:
+$ chmod 755 scan.sh
+
+Verify:
+$ ls -la scan.sh
+
+
+Set permission to 700:
+$ chmod 700 scan.sh
+
+Verify:
+$ ls -la scan.sh
+
+
+Set permission to 644:
+$ chmod 644 scan.sh
+
+Verify:
+$ ls -la scan.sh
+
+
+Set permission to 600:
+$ chmod 600 scan.sh
+
+Verify:
+$ ls -la scan.sh
+
+
+==========================================
+👤 PRACTICAL 04 — CHECK USER & GROUP
+==========================================
+
+Check current user:
+$ whoami
+
+Check UID, GID and groups:
+$ id
+
+Check groups:
+$ groups
+
+Understand:
+
+  Username:
+  UID:
+  GID:
+  Groups:
+
+
+==========================================
+👥 PRACTICAL 05 — CHECK FILE OWNERSHIP
+==========================================
+
+Check ownership:
+$ ls -la scan.sh
+
+Identify:
+  Owner:
+  Group:
+
+
+Change group ownership on your lab file:
+$ sudo chgrp <your-group> scan.sh
+
+Verify:
+$ ls -la scan.sh
+
+
+Change owner on your own lab file if required:
+$ sudo chown <your-username> scan.sh
+
+Verify:
+$ ls -la scan.sh
+
+
+==========================================
+📁 PRACTICAL 06 — DIRECTORY PERMISSIONS
+==========================================
+
+Create a directory:
+$ mkdir private-folder
+
+Check:
+$ ls -ld private-folder
+
+Set private permission:
+$ chmod 700 private-folder
+
+Verify:
+$ ls -ld private-folder
+
+
+Create a file inside it:
+$ touch private-folder/test.txt
+
+Check:
+$ ls -la private-folder
+
+
+==========================================
+🧪 PRACTICAL 07 — PERMISSION LAB
+==========================================
+
+Create a practice directory:
+
+$ mkdir permission-lab
+Enter the directory:
+$ cd permission-lab
+
+
+Create test files:
+
+$ touch public.txt
+$ touch private.txt
+$ touch script.sh
+
+
+Check current permissions:
+$ ls -la
+
+
+Set normal file permission:
+$ chmod 644 public.txt
+
+
+Set private file permission:
+$ chmod 600 private.txt
+
+
+Make script executable:
+$ chmod 755 script.sh
+
+
+Check final permissions:
+$ ls -la
+
+
+==========================================
+🔍 PRACTICAL 08 — WORLD-WRITABLE FILE HUNT
+==========================================
+
+Find world-writable regular files
+inside your home directory:
+
+$ find ~ -type f -perm -002
+
+
+Find world-writable regular files
+inside /tmp:
+
+$ find /tmp -type f -perm -002
+
+
+Security questions:
+
+  Who owns the file?
+  Which group owns it?
+  Who can modify it?
+  What does the file do?
+  Is it executed by another user?
+  Could modification create a security risk?
+
+
+==========================================
+🧠 PERMISSION CONVERSION PRACTICE
+==========================================
+
+Remember:
+
+  rwx = 4 + 2 + 1 = 7
+  rw- = 4 + 2 + 0 = 6
+  r-x = 4 + 0 + 1 = 5
+  r-- = 4 + 0 + 0 = 4
+
+
+Convert:
+
+  rw-r--r-- = ______
+
+  rwxr-xr-x = ______
+
+  rw------- = ______
+
+  rwx------ = ______
+
+  rwxrwxr-x = ______
+
+
+==========================================
+🎯 CHALLENGE 01 — DECODE PERMISSIONS
+==========================================
+
+Given:
+
+  drwxrwxr-x
+
+Find:
+
+  1. File or directory?
+  2. Owner permissions?
+  3. Group permissions?
+  4. Others permissions?
+  5. Octal value?
+
+
+My answer:
+
+  File/Directory:
+  Owner:
+  Group:
+  Others:
+  Octal:
+
+
+==========================================
+🎯 CHALLENGE 02 — FIX DANGEROUS PERMISSION
+==========================================
+
+A script has:
+
+  deploy.sh → 777
+
+Required:
+
+  Owner  → rwx
+  Group  → r-x
+  Others → ---
+
+Find the correct chmod command.
+
+My command:
+
+  >
+
+
+==========================================
+🎯 CHALLENGE 03 — SECURITY HUNT
+==========================================
+
+Task:
+
+Find all world-writable regular files
+inside /tmp.
+
+My command:
+
+  >
+
+
+Why can world-writable files be dangerous?
+
+  >
+
+
+==========================================
+🔐 SECURITY MINDSET
+==========================================
+
+When I see a file during security assessment,
+I should not only ask:
+
+  "Does this file exist?"
+
+I should also ask:
+
+  Who owns it?
+  Who can read it?
+  Who can modify it?
+  Who can execute it?
+  Is it world-writable?
+  Is it executed by a privileged user?
+  Can the permission create a security risk?
+
+
+Important:
+
+  777 ≠ automatically vulnerable
+
+The actual security impact depends on:
+
+  Ownership
+  Location
+  File purpose
+  Execution context
+  Privileges
+  How the file is used
+
+
+==========================================
+🧠 TODAY'S TAKEAWAY
+==========================================
+
+Today I learned:
+
+- How Linux permission strings work
+- How to identify Owner, Group and Others
+- How to convert rwx permissions into octal values
+- How to use chmod
+- How to use chown
+- How to use chgrp
+- How directory permissions work
+- How to identify world-writable files
+- Why incorrect permissions can create security risks
+
+
+The main mindset I learned today:
+
+  "Don't just look at the file.
+   Understand who can access and modify it."
+
+
+==========================================
+📊 DAY 02 CHECKLIST
+==========================================
+
+[✓] Understand Owner / Group / Others
+[✓] Understand rwx permissions
+[✓] Read permission strings
+[✓] Convert permissions to octal
+[✓] Practice chmod
+[✓] Practice chown
+[✓] Practice chgrp
+[✓] Practice directory permissions
+[✓] Search for world-writable files
+[✓] Complete permission lab
+[ ] Complete all challenges
+
+
+==========================================
+🚀 TOMORROW — DAY 03
+==========================================
+
+👥 USERS & GROUPS
+
+Topics:
+
+- Linux users
+- Linux groups
+- /etc/passwd
+- /etc/group
+- useradd
+- usermod
+- groups
+- id
+- User enumeration
+- Group enumeration
+- Basic account management
+
+
+==========================================
+DAY 02 COMPLETE 🔐🐧
+==========================================
