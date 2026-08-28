@@ -1,0 +1,91 @@
+==========================================
+DAY 02 — FILE PERMISSIONS & OWNERSHIP
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+
+--- READING PERMISSIONS ---
+
+ls -la <file>                       # view permissions, owner & group
+ls -la                              # list files with permissions
+ls -ld <directory>                 # view directory permissions
+stat <file>                         # detailed file metadata & permissions
+
+
+--- CHMOD — SYMBOLIC MODE ---
+
+chmod u+x <file>                    # add execute for owner
+chmod u-x <file>                    # remove execute from owner
+
+chmod g+w <file>                    # add write for group
+chmod g-w <file>                    # remove write from group
+
+chmod o-r <file>                    # remove read from others
+chmod o+w <file>                    # add write for others
+
+chmod a+r <file>                    # add read for everyone
+chmod u+x,g-w <file>                # multiple permission changes
+
+
+--- CHMOD — OCTAL MODE ---
+
+chmod 644 <file>                    # rw-r--r-- | standard file
+chmod 755 <file>                    # rwxr-xr-x | scripts/directories
+chmod 700 <file>                    # rwx------ | owner only
+chmod 600 <file>                    # rw------- | private file
+
+chmod 777 <file>                    # rwxrwxrwx | ⚠️ avoid unless required
+chmod -R 755 <folder>               # recursive — use carefully ⚠️
+
+
+--- CHOWN / CHGRP — OWNERSHIP ---
+
+sudo chown <user> <file>            # change owner
+sudo chown <user>:<group> <file>    # change owner + group
+sudo chown :<group> <file>          # change only group
+sudo chgrp <group> <file>           # change group
+sudo chown -R <user>:<group> <folder>
+                                    # recursive ownership change ⚠️
+
+
+--- FINDING PERMISSION ISSUES ---
+find ~ -type f -perm -002           # world-writable files in home
+find /tmp -type f -perm -002        # world-writable files in /tmp
+find . -type f -perm 777             # files with exactly 777
+find . -type f -perm -002            # files writable by Others
+
+
+--- OCTAL VALUE CHEAT SHEET ---
+
+r (read)       = 4
+w (write)      = 2
+x (execute)    = 1
+- (none)       = 0
+
+
+--- COMMON PERMISSIONS ---
+
+644 = rw-r--r--   # standard files
+755 = rwxr-xr-x   # scripts / directories
+700 = rwx------   # private files / folders
+600 = rw-------   # private files
+777 = rwxrwxrwx   # ⚠️ everyone has full permissions
+
+
+--- SECURITY QUICK CHECK ---
+
+When checking a file, ask:
+
+Who owns it?
+Who owns the group?
+Who can read it?
+Who can modify it?
+Who can execute it?
+Is it world-writable?
+Is it used by a privileged process?
+
+
+==========================================
+END OF DAY 02 COMMAND SHEET
+==========================================
