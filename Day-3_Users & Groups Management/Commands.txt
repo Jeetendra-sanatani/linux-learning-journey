@@ -1,0 +1,53 @@
+==========================================
+DAY 03 — USERS & GROUPS MANAGEMENT
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- READING USER INFO ---
+whoami                        # current logged-in username
+id                             # UID, GID, and all group memberships
+id <username>                  # info about a specific user
+groups <username>              # groups a specific user belongs to
+cat /etc/passwd                # all user accounts
+grep <username> /etc/passwd    # find a specific user's entry
+cat /etc/group                 # all groups on the system
+getent group <groupname>       # members of a specific group
+
+--- CREATING USERS ---
+sudo useradd -m <username>                     # create user with home directory
+sudo useradd -m -s /bin/bash <username>        # with home dir + bash shell
+sudo useradd -m -s /bin/bash -G sudo <username> # with home dir + added to sudo group
+sudo passwd <username>                          # set password for a user
+
+--- MODIFYING USERS ---
+sudo usermod -aG <group> <username>    # ADD user to a group (keeps existing groups)
+sudo usermod -s /bin/zsh <username>    # change login shell
+sudo usermod -L <username>              # lock account (disable login)
+sudo usermod -U <username>              # unlock account
+
+--- DELETING USERS ---
+sudo userdel <username>          # delete user, KEEP home directory
+sudo userdel -r <username>       # delete user AND home directory
+
+--- MANAGING GROUPS ---
+sudo groupadd <groupname>              # create a new group
+sudo groupmod -n <newname> <oldname>   # rename a group
+sudo gpasswd -a <username> <group>     # add user to group (alt to usermod -aG)
+sudo gpasswd -d <username> <group>     # remove user from a group
+sudo groupdel <groupname>              # delete a group
+
+--- SWITCHING USERS & SUDO ---
+su <username>                    # switch user (keeps current environment)
+su - <username>                  # switch user (full login shell)
+sudo <command>                   # run a single command as root
+sudo -i                          # open a root shell
+exit                             # return to previous user
+
+--- FIND USERS IN A SPECIFIC GROUP ---
+getent group sudo                          # list all members of sudo group
+grep "/bin/bash" /etc/passwd               # find all users with bash shell
+
+==========================================
+END OF DAY 03 COMMAND SHEET
+==========================================
