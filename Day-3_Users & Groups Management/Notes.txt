@@ -1,0 +1,31 @@
+==========================================
+DAY 03 NOTES — Users & Groups Management
+Date: ___________
+==========================================
+
+WHAT I LEARNED TODAY:
+- Every user has a UID (unique ID) and a GID (primary group ID)
+- /etc/passwd = user account info (readable by everyone)
+- /etc/shadow = password hashes (root-only, that's why /etc/passwd shows "x")
+- /etc/group = all groups and their members
+- Groups let you manage permissions for many users at once instead of one-by-one
+- sudo group membership = borrowed root power, temporarily
+- usermod -aG (append) vs usermod -G (replace ALL groups) — big difference!
+
+COMMANDS I PRACTICED:
+[ ] id / whoami / groups
+[ ] useradd -m -s /bin/bash
+[ ] passwd (setting a password)
+[ ] usermod -aG (adding to a group)
+[ ] groupadd / getent group
+[ ] userdel -r
+
+
+
+QUESTIONS I STILL HAVE:
+- Difference between userdel and userdel -r?
+- How are UID and GID assigned to a new user?
+- How can I check which users have sudo privileges?
+
+TOMORROW'S TOPIC: Day 04 — Process Management
+==========================================
