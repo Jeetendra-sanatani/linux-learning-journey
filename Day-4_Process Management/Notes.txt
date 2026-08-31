@@ -1,0 +1,51 @@
+==========================================
+DAY 04 NOTES — Process Management
+Date: ___________
+==========================================
+
+WHAT I LEARNED TODAY:
+- A process = a running program, identified by a unique PID
+- STAT column codes: R=Running, S=Sleeping, D=Uninterruptible sleep, Z=Zombie, T=Stopped
+- Zombie = process finished but parent hasn't "collected" its exit status yet
+- Signals: SIGTERM (15) = graceful stop, SIGKILL (9) = forceful, SIGHUP (1) = reload config
+- Rule: always try kill (SIGTERM) before kill -9 (SIGKILL) — force-kill skips cleanup
+- Background jobs (&) die when terminal closes, UNLESS run with nohup
+- systemctl manages services (start/stop/restart/status) — the modern way to control daemons
+
+COMMANDS I PRACTICED:
+[ ] ps aux / ps aux --sort=-%cpu
+[ ] pgrep / pgrep -l
+[ ] kill / kill -9
+[ ] jobs / fg / bg
+[ ] systemctl status/start/stop
+
+MY OWN OUTPUT (fill this in after running commands yourself):
+$ ps aux --sort=-%mem | head -6
+> 
+
+$ pgrep bash
+> 
+
+$ jobs (after starting a background sleep)
+> 
+
+
+CHALLENGES — MY ANSWERS:
+1. Command to count zombie processes:
+   > 
+
+2. Order of commands to gracefully then forcefully stop a stuck process:
+   > 
+
+3. Command to find the single highest memory-consuming process (PID + name only):
+   > 
+
+
+MISTAKES / ERRORS I HIT TODAY:
+- 
+
+QUESTIONS I STILL HAVE:
+- 
+
+TOMORROW'S TOPIC: Day 05 — Networking Basics
+==========================================
