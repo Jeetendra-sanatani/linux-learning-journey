@@ -1,0 +1,52 @@
+==========================================
+DAY 04 — PROCESS MANAGEMENT
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- VIEWING PROCESSES ---
+ps aux                          # all processes, all users
+ps aux | head -6                # first 5 processes
+ps aux --sort=-%cpu | head -6   # top 5 CPU-consuming processes
+ps aux --sort=-%mem | head -6   # top 5 memory-consuming processes
+top                              # interactive live process viewer (q to quit)
+htop                             # nicer version of top (install: sudo apt install htop)
+
+--- FINDING SPECIFIC PROCESSES ---
+pgrep <name>                     # print PID(s) of processes matching name
+pgrep -l <name>                  # print PID and process name
+ps aux | grep <name>             # search process list manually
+ps aux | grep <name> | grep -v grep   # same, but exclude the grep command itself
+
+--- COUNTING & FILTERING ---
+ps aux | wc -l                   # count total running processes
+ps aux | awk '$8=="Z"'           # find zombie processes (STAT column = Z)
+ps aux | grep 'Z' | wc -l        # count zombie processes (simpler alternative)
+
+--- KILLING PROCESSES ---
+kill <PID>                       # graceful stop (SIGTERM, signal 15)
+kill -15 <PID>                   # same as above, explicit
+kill -9 <PID>                    # forceful kill (SIGKILL) — last resort
+kill -1 <PID>                    # SIGHUP — reload config (common for services)
+pkill <name>                     # kill all processes matching a name
+killall <name>                   # kill all processes with exact name match
+
+--- BACKGROUND & FOREGROUND JOBS ---
+command &                        # run a command in the background
+jobs                              # list background jobs in current shell
+fg %1                             # bring job 1 to foreground
+bg %1                             # resume job 1 in background
+Ctrl + Z                          # suspend the current foreground job
+nohup command &                   # run immune to terminal hangup/logout
+
+--- MANAGING SERVICES (systemd) ---
+sudo systemctl status <service>    # check if a service is running
+sudo systemctl start <service>     # start a service
+sudo systemctl stop <service>      # stop a service
+sudo systemctl restart <service>   # restart a service
+sudo systemctl enable <service>    # auto-start on boot
+sudo systemctl disable <service>   # disable auto-start on boot
+
+==========================================
+END OF DAY 04 COMMAND SHEET
+==========================================
