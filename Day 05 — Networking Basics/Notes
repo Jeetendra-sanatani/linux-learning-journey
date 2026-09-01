@@ -1,0 +1,47 @@
+==========================================
+DAY 05 NOTES — Networking Basics
+Date: 01-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- Private IPs (192.168.x.x, 10.x.x.x) stay inside a local network; public IPs are internet-visible
+- Ports are numbered "doors" — 22=SSH, 80=HTTP, 443=HTTPS, 21=FTP
+- ping checks "is it alive", ss/netstat checks "what's open on THIS machine", curl checks "what does it say back"
+- ss -tuln shows listening ports; add -p (needs sudo) to see which process owns each port
+- Ping getting blocked (no response) doesn't always mean a server is actually down
+- curl -I gets headers/status code only, without downloading the full page
+
+COMMANDS I PRACTICED:
+[ ] ip addr show / hostname -I
+[ ] ping -c 4
+[ ] ss -tuln / ss -tulnp
+[ ] curl -I / curl api.ipify.org
+[ ] dig +short
+
+Fill this in after running commands yourself :
+$ ip addr show
+> 
+
+$ ping -c 4 google.com
+> 
+
+$ ss -tuln
+> 
+
+
+CHALLENGES :
+1. Command to check if port 22 is listening:
+   > 
+
+2. Why 100% ping packet loss doesn't always mean server is down:
+   > 
+
+3. curl command to check HTTP status code without downloading the page:
+   > 
+
+
+MISTAKES / ERRORS I HIT TODAY:
+- 
+
+TOMORROW'S TOPIC: Day 06 — (check main roadmap for next topic)
+==========================================
