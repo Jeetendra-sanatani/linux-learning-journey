@@ -1,0 +1,54 @@
+==========================================
+DAY 05 — NETWORKING BASICS
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- IP & INTERFACES ---
+ip addr show                    # show all interfaces and IP addresses
+ip addr show eth0               # show specific interface
+hostname -I                     # print all IP addresses (short form)
+ip route show                   # show routing table
+
+--- CONNECTIVITY TESTING ---
+ping <host>                     # continuous ping (Ctrl+C to stop)
+ping -c 4 <host>                # send exactly 4 packets and stop
+ping -c 4 google.com            # example: test connectivity to google
+
+--- LISTENING PORTS ---
+ss -tuln                        # TCP/UDP listening ports (no process info)
+ss -tulnp                       # same, with process names (needs sudo)
+ss -t state established         # only established TCP connections
+netstat -tuln                   # older alternative to ss (same purpose)
+
+--- DNS LOOKUPS ---
+cat /etc/resolv.conf            # DNS servers currently configured
+dig <domain>                    # detailed DNS lookup
+dig <domain> +short             # just the IP address, no extra details
+nslookup <domain>               # simpler DNS lookup tool
+host <domain>                   # simplest DNS lookup
+
+--- HTTP REQUESTS WITH CURL ---
+curl <url>                      # GET request, prints response body
+curl -I <url>                   # headers only (great for checking status codes)
+curl -o file.html <url>         # download response to a file
+curl -L <url>                   # follow redirects automatically
+curl https://api.ipify.org      # find your PUBLIC IP address
+
+--- FINDING SPECIFIC PORT STATUS ---
+ss -tuln | grep :22             # check if port 22 (SSH) is listening
+ss -tuln | grep :80             # check if port 80 (HTTP) is listening
+
+==========================================
+COMMON PORT REFERENCE
+==========================================
+22    → SSH (remote login)
+80    → HTTP (websites)
+443   → HTTPS (secure websites)
+21    → FTP (file transfer)
+3306  → MySQL database
+53    → DNS
+
+==========================================
+END OF DAY 05 COMMAND SHEET
+==========================================
