@@ -1,0 +1,49 @@
+==========================================
+DAY 06 NOTES — Services & Systemctl
+Date: 02-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- A service/daemon = a process that runs continuously in the background (sshd, cron, nginx)
+- systemd is the init system managing all services; it's PID 1, the very first process on boot
+- start/stop = affects the service RIGHT NOW
+- enable/disable = affects whether it auto-starts on the NEXT BOOT (two separate things!)
+- systemctl enable --now = do both at once (start immediately + enable for future boots)
+- journalctl -u <service> = read that service's logs
+- Attackers sometimes "enable" a malicious service for persistence across reboots
+- systemctl --failed shows services that crashed or failed to start
+
+COMMANDS I PRACTICED:
+[ ] systemctl status / is-active / is-enabled
+[ ] systemctl start / stop / restart
+[ ] systemctl enable / disable
+[ ] systemctl list-units --state=running
+[ ] journalctl -u <service>
+
+fill this in after running commands yourself :
+$ sudo systemctl status ssh
+> 
+
+$ systemctl is-enabled ssh
+> 
+
+$ journalctl -u ssh -n 10
+> 
+
+
+CHALLENGES :
+1. Command to check if cron is enabled (without starting/stopping it):
+   > 
+
+2. Single command to start AND enable a service:
+   > 
+
+3. Command to list all services enabled to auto-start on boot:
+   > 
+
+
+MISTAKES / ERRORS I HIT TODAY:
+- 
+
+TOMORROW'S TOPIC: Day 07 — Logs & Log Analysis
+==========================================
