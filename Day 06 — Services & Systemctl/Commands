@@ -1,0 +1,41 @@
+==========================================
+DAY 06 — SERVICES & SYSTEMCTL
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- CHECKING SERVICE STATUS ---
+sudo systemctl status <service>     # full status report
+systemctl is-active <service>       # just "active" or "inactive"
+systemctl is-enabled <service>      # just "enabled" or "disabled"
+
+--- STARTING / STOPPING / RESTARTING ---
+sudo systemctl start <service>       # start now
+sudo systemctl stop <service>        # stop now
+sudo systemctl restart <service>     # stop then start (after config changes)
+sudo systemctl reload <service>      # reload config without full restart (if supported)
+
+--- CONTROLLING BOOT BEHAVIOR ---
+sudo systemctl enable <service>          # auto-start on every future boot
+sudo systemctl disable <service>         # stop auto-starting on boot (doesn't stop it now)
+sudo systemctl enable --now <service>    # enable AND start in one command
+sudo systemctl disable --now <service>   # disable AND stop in one command
+
+--- LISTING SERVICES ---
+systemctl list-units --type=service                    # all loaded services
+systemctl list-units --type=service --state=running    # only running services
+systemctl list-unit-files --type=service                # all installed services + their boot state
+systemctl list-unit-files --type=service | grep enabled # only enabled services
+systemctl --failed                                       # only FAILED services
+
+--- READING LOGS WITH JOURNALCTL ---
+journalctl -u <service>              # all logs for a specific service
+journalctl -u <service> -f            # follow live (like tail -f)
+journalctl -u <service> -n 20         # last 20 lines
+journalctl -u <service> --since "1 hour ago"   # recent logs only
+journalctl -p err -b                   # only errors, since last boot
+journalctl --disk-usage                # how much disk space logs are using
+
+==========================================
+END OF DAY 06 COMMAND SHEET
+==========================================
