@@ -1,0 +1,48 @@
+==========================================
+DAY 07 NOTES — Logs & Log Analysis
+Date: 03-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- Most logs live in /var/log/
+- syslog = general system activity, auth.log = login/authentication events
+- cat is fine for small logs, but tail/grep are needed for huge ones
+- tail -f follows a log LIVE as new lines get written (great for watching in real time)
+- grep -c counts matching lines instead of printing them all
+- auth.log is the first place to check for brute-force login attempts
+- Most log files need sudo to read (they contain sensitive info)
+- Log files rotate — older ones might be named auth.log.1 or syslog.gz
+
+COMMANDS I PRACTICED:
+[ ] ls /var/log
+[ ] tail -20 / tail -f
+[ ] grep "Failed password" / grep -c
+[ ] grep + awk + sort + uniq combo for IP counting
+
+fill this in after running commands yourself :
+$ ls /var/log
+> 
+
+$ sudo tail -20 /var/log/syslog
+> 
+
+$ sudo grep -c "Failed password" /var/log/auth.log
+> 
+
+
+CHALLENGES :
+1. Command to count failed password attempts:
+   > 
+
+2. Command to list unique IPs from failed login attempts:
+   > 
+
+3. Command to show only today's syslog entries:
+   > 
+
+
+MISTAKES / ERRORS I HIT TODAY:
+- 
+
+TOMORROW'S TOPIC: Day 08 — Linux Security Basics
+==========================================
