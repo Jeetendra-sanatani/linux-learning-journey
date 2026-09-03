@@ -1,0 +1,40 @@
+==========================================
+DAY 07 — LOGS & LOG ANALYSIS
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- KEY LOG FILE LOCATIONS ---
+/var/log/syslog        # general system activity (Debian/Ubuntu/Kali)
+/var/log/auth.log      # login attempts, sudo usage, authentication events
+/var/log/kern.log      # kernel-level messages
+/var/log/dmesg         # boot-time messages
+
+--- VIEWING LOGS ---
+ls /var/log                     # see all available log files
+cat /var/log/syslog             # dump entire file (only for small logs)
+tail /var/log/syslog            # last 10 lines (default)
+tail -20 /var/log/syslog        # last 20 lines
+tail -f /var/log/syslog         # follow live, new lines appear in real-time (Ctrl+C to stop)
+less /var/log/syslog            # scroll through interactively (q to quit)
+
+--- SEARCHING LOGS WITH GREP ---
+sudo grep "Failed password" /var/log/auth.log     # find failed login attempts
+sudo grep "sudo" /var/log/auth.log                # find sudo command usage
+sudo grep -i "error" /var/log/syslog              # case-insensitive search for errors
+sudo grep -c "Failed password" /var/log/auth.log  # COUNT matching lines
+
+--- COMBINING TOOLS FOR ANALYSIS ---
+sudo grep "Failed password" /var/log/auth.log | awk '{print $(NF-3)}' | sort | uniq -c
+   # extracts IP addresses from failed logins, counts occurrences per IP
+
+sudo grep "$(date '+%b %d')" /var/log/syslog | tail -10
+   # shows only today's log entries (last 10)
+
+--- CHECKING LOG FILE SIZE ---
+du -sh /var/log/syslog          # size of a specific log file
+du -sh /var/log                 # total size of all logs
+
+==========================================
+END OF DAY 07 COMMAND SHEET
+==========================================
