@@ -1,0 +1,51 @@
+==========================================
+DAY 08 NOTES — Linux Security Basics
+Date: 04-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- SUID = program runs with the FILE OWNER's privileges (not the user running it)
+- SGID = similar, but for group; on directories, new files inherit the dir's group
+- ls -la shows SUID as 's' in owner's execute slot, SGID as 's' in group's slot
+- /usr/bin/passwd has SUID root — that's HOW normal users can change their own password
+- SUID binaries are a classic privilege escalation target for attackers
+- find -perm -4000 finds SUID files, -perm -2000 finds SGID files
+- Basic hardening checklist: no unnecessary SUID, no world-writable files, 
+  SSH root login disabled, monitor auth.log, minimal sudo access
+
+COMMANDS I PRACTICED:
+[ ] ls -la (spotting SUID/SGID visually)
+[ ] find -perm -4000
+[ ] find -perm -2000
+[ ] grep PermitRootLogin sshd_config
+
+fill this in after running commands yourself :
+$ ls -la /usr/bin/passwd
+> 
+
+$ find / -perm -4000 -type f 2>/dev/null | wc -l
+> 
+
+$ sudo grep "PermitRootLogin" /etc/ssh/sshd_config
+> 
+
+
+CHALLENGES :
+1. Command to list all SUID binaries cleanly (no error noise):
+   > 
+
+2. Which SUID binary looked suspicious and why (passwd/sudo/nano example):
+   > 
+
+3. My 3-point security checklist for a random server:
+   > 
+   > 
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+TOMORROW'S TOPIC: Day 09 — Package Management
+==========================================
