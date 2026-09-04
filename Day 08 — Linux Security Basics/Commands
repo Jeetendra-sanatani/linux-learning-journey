@@ -1,0 +1,40 @@
+==========================================
+DAY 08 — LINUX SECURITY BASICS
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- SPOTTING SUID/SGID IN PERMISSIONS ---
+ls -la <file>                    # look for 's' instead of 'x' in owner/group slot
+                                  # -rwsr-xr-x  = SUID set (owner slot)
+                                  # -rwxr-sr-x  = SGID set (group slot)
+
+--- FINDING SUID BINARIES ---
+find / -perm -4000 -type f 2>/dev/null           # all SUID binaries (system-wide)
+find / -perm -4000 -type f 2>/dev/null | wc -l   # count how many exist
+find /usr/bin -perm -4000 -type f 2>/dev/null    # limit search to /usr/bin only
+
+--- FINDING SGID BINARIES ---
+find / -perm -2000 -type f 2>/dev/null           # all SGID binaries (system-wide)
+
+--- REMOVING SUID/SGID (only if you know what you're doing) ---
+sudo chmod u-s <file>             # remove SUID bit
+sudo chmod g-s <file>             # remove SGID bit
+
+--- WORLD-WRITABLE FILE CHECK (revisited from Day 02) ---
+find / -perm -002 -type f 2>/dev/null            # world-writable files, system-wide
+find / -perm -002 -type f 2>/dev/null | grep -v "^/proc"   # exclude noisy /proc results
+
+--- BASIC SSH HARDENING CHECK ---
+sudo grep "PermitRootLogin" /etc/ssh/sshd_config       # is direct root login allowed?
+sudo grep "PasswordAuthentication" /etc/ssh/sshd_config # is password login allowed?
+
+--- OCTAL VALUES FOR SPECIAL BITS ---
+4000 = SUID
+2000 = SGID
+1000 = Sticky bit
+chmod 4755 <file>    # sets SUID + rwxr-xr-x
+
+==========================================
+END OF DAY 08 COMMAND SHEET
+==========================================
