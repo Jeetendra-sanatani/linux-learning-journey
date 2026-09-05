@@ -1,0 +1,40 @@
+==========================================
+DAY 09 — PACKAGE MANAGEMENT
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- UPDATING PACKAGE LISTS ---
+sudo apt update                  # refresh available package catalog (no installs happen)
+sudo apt upgrade                 # install newer versions of already-installed packages
+sudo apt full-upgrade            # upgrade + handle dependency changes if needed
+
+--- SEARCHING FOR PACKAGES ---
+apt search <keyword>             # search for packages by keyword
+apt show <package>               # detailed info about a specific package
+
+--- INSTALLING PACKAGES ---
+sudo apt install <package>              # install a single package
+sudo apt install <pkg1> <pkg2>          # install multiple packages at once
+sudo apt install -y <package>           # auto-confirm yes (non-interactive)
+
+--- CHECKING INSTALLED PACKAGES ---
+apt list --installed                    # list ALL installed packages
+apt list --installed | grep <name>      # check if a specific package is installed
+dpkg -l | grep <name>                   # alternative way to check installed packages
+dpkg -s <package>                        # detailed status of a specific package
+
+--- REMOVING PACKAGES ---
+sudo apt remove <package>        # remove package, KEEP config files
+sudo apt purge <package>         # remove package AND its config files
+sudo apt autoremove              # clean up unused leftover dependencies
+sudo apt clean                   # clear the downloaded package cache
+
+--- DPKG (LOW-LEVEL, USED LESS OFTEN) ---
+sudo dpkg -i <package.deb>        # install a manually downloaded .deb file
+dpkg -l                            # list all installed packages (low-level)
+dpkg -L <package>                  # list all files installed by a package
+
+==========================================
+END OF DAY 09 COMMAND SHEET
+==========================================
