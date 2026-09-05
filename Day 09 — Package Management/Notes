@@ -1,0 +1,49 @@
+==========================================
+DAY 09 NOTES — Package Management
+Date: 05-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- apt = high-level tool (handles repos + dependencies), dpkg = low-level tool (installs .deb files)
+- apt update ONLY refreshes the package catalog, doesn't install anything
+- apt upgrade actually installs newer versions of already-installed software
+- apt remove keeps config files, apt purge deletes them too
+- apt autoremove cleans up leftover unused dependencies
+- Installing via official repos = signed, trusted packages
+- Random .sh install scripts from the internet bypass this trust — risky
+
+COMMANDS I PRACTICED:
+[ ] apt update / apt upgrade
+[ ] apt search / apt show
+[ ] apt install / apt list --installed
+[ ] apt remove vs apt purge
+[ ] dpkg -l
+
+fill this in after running commands yourself :
+$ sudo apt update
+> 
+
+$ sudo apt install tree
+> 
+
+$ apt list --installed | grep tree
+> 
+
+
+CHALLENGES :
+1. Command to check installed version of openssh-server:
+   > 
+
+2. Command to remove leftover config files after apt remove:
+   > 
+
+3. Difference between apt update and apt upgrade (in my own words):
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+TOMORROW'S TOPIC: Day 10 — Disk & Storage Management
+==========================================
