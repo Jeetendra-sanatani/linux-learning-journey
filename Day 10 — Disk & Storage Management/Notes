@@ -1,0 +1,49 @@
+==========================================
+DAY 10 NOTES — Disk & Storage Management
+Date: 07-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- df -h = how full is the WHOLE filesystem (big picture)
+- du -sh = how much space does THIS specific folder use (drill-down)
+- lsblk = shows physical disks and partitions attached to the machine
+- "Mounting" = attaching a storage device onto a folder in the filesystem tree
+  (no drive letters like Windows — just becomes part of the one big tree)
+- /dev/sda = first disk, /dev/sda1 = first partition on that disk
+- ALWAYS umount a USB drive before physically removing it (avoids data corruption)
+- df and du numbers don't always match exactly — they measure different things
+
+COMMANDS I PRACTICED:
+[ ] df -h
+[ ] du -sh (folder-level usage)
+[ ] lsblk / lsblk -f
+[ ] mount / umount
+
+fill this in after running commands yourself :
+$ df -h
+> 
+
+$ du -sh ~
+> 
+
+$ lsblk
+> 
+
+
+CHALLENGES :
+1. Command to list top 5 largest folders in /var:
+   > 
+
+2. How I'd spot a filesystem over 80% full in df -h output:
+   > 
+
+3. Reason df and du numbers might not match exactly:
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+TOMORROW'S TOPIC: Day 11 — Archiving & Compression
+==========================================
