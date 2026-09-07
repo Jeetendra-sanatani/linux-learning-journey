@@ -1,0 +1,37 @@
+==========================================
+DAY 10 — DISK & STORAGE MANAGEMENT
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- CHECKING OVERALL DISK SPACE ---
+df -h                          # human-readable disk usage, all filesystems
+df -h /                        # disk usage for root filesystem only
+df -h /home                    # disk usage for a specific mount point
+df -hT                         # include filesystem TYPE column (ext4, etc.)
+
+--- CHECKING FOLDER-LEVEL USAGE ---
+du -sh <folder>                 # total size of one folder (summarized)
+du -sh /home/raven/*            # size of every item inside a folder
+du -sh /home/raven/* | sort -rh | head -5   # top 5 largest items, sorted
+du -sh /var/*                   # check what's eating space inside /var
+
+--- LISTING STORAGE DEVICES ---
+lsblk                            # tree view of disks and partitions
+lsblk -f                         # include filesystem type and UUID
+blkid                             # show UUIDs and filesystem types (needs sudo sometimes)
+sudo fdisk -l                     # list partition tables (detailed, root only)
+
+--- MOUNTING & UNMOUNTING ---
+sudo mount /dev/sdb1 /mnt         # mount a device to a folder
+sudo umount /mnt                   # unmount (ALWAYS do this before removing a drive)
+mount | grep sdb                   # check if a specific device is currently mounted
+mount                                # list ALL currently mounted filesystems
+
+--- QUICK SPACE-CHECK ONE-LINERS ---
+df -h | grep -v tmpfs              # disk usage, excluding temporary filesystems
+du -sh /var/log/*                  # check what's filling up your logs folder
+
+==========================================
+END OF DAY 10 COMMAND SHEET
+==========================================
