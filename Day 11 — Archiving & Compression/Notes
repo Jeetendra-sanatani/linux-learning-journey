@@ -1,0 +1,49 @@
+==========================================
+DAY 11 NOTES — Archiving & Compression
+Date: 08-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- tar bundles files together; it does NOT compress by itself
+- gzip is the compression step, usually combined with tar in one command
+- tar -czf = create + gzip + filename → the most common archive command
+- tar -tzf lets you PEEK inside an archive before extracting (important for untrusted files)
+- .tar.gz is the Linux-standard format; .zip is better for cross-platform (Windows) sharing
+- gzip file.txt REPLACES the original with file.txt.gz (use -k to keep both)
+- -C flag lets you extract an archive to a specific folder instead of the current one
+
+COMMANDS I PRACTICED:
+[ ] tar -cf / tar -czf
+[ ] tar -tzf (listing contents)
+[ ] tar -xzf (extracting)
+[ ] gzip / gunzip
+[ ] zip -r / unzip
+
+fill this in after running commands yourself :
+$ tar -czf backup.tar.gz practice/
+> 
+
+$ tar -tzf backup.tar.gz
+> 
+
+$ ls -lh backup.tar backup.tar.gz
+> 
+
+
+CHALLENGES :
+1. One-liner to backup practice/ folder as daily_backup.tar.gz:
+   > 
+
+2. Command to peek inside an untrusted .tar.gz before extracting:
+   > 
+
+3. Which of data.tar / data.tar.gz / data.zip is smallest, and why:
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+TOMORROW'S TOPIC: Day 12 — Shell Scripting Basics
+==========================================
