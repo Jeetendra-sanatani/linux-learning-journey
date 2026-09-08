@@ -1,0 +1,40 @@
+==========================================
+DAY 11 — ARCHIVING & COMPRESSION
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- CREATING ARCHIVES WITH TAR ---
+tar -cf archive.tar folder/           # bundle files, NO compression
+tar -czf archive.tar.gz folder/       # bundle + gzip compress (most common)
+tar -czvf archive.tar.gz folder/      # same, but verbose (shows each file)
+
+--- VIEWING ARCHIVE CONTENTS (without extracting) ---
+tar -tf archive.tar                    # list contents of uncompressed archive
+tar -tzf archive.tar.gz                # list contents of compressed archive
+
+--- EXTRACTING ARCHIVES ---
+tar -xf archive.tar                     # extract uncompressed archive
+tar -xzf archive.tar.gz                 # extract compressed archive
+tar -xzf archive.tar.gz -C /path/       # extract to a SPECIFIC destination folder
+
+--- GZIP / GUNZIP (single file compression) ---
+gzip file.txt                           # compress (REPLACES original with file.txt.gz)
+gzip -k file.txt                        # compress but KEEP the original file too
+gunzip file.txt.gz                      # decompress back to file.txt
+zcat file.txt.gz                        # view compressed file's content without extracting
+
+--- ZIP / UNZIP (cross-platform) ---
+zip archive.zip file1.txt file2.txt     # zip specific files
+zip -r archive.zip folder/              # zip an entire folder (recursive)
+unzip archive.zip                       # extract to current directory
+unzip archive.zip -d /path/             # extract to a specific directory
+unzip -l archive.zip                    # list contents without extracting
+
+--- QUICK FLAG REFERENCE ---
+c = create      x = extract     t = list (test)
+z = gzip        f = filename follows      v = verbose
+
+==========================================
+END OF DAY 11 COMMAND SHEET
+==========================================
