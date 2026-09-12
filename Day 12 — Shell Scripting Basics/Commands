@@ -1,0 +1,52 @@
+==========================================
+DAY 12 — SHELL SCRIPTING BASICS
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- SCRIPT STRUCTURE ---
+#!/bin/bash                     # shebang, ALWAYS the first line of a script
+
+--- MAKING A SCRIPT EXECUTABLE & RUNNING IT ---
+chmod +x scriptname.sh          # give the script execute permission
+./scriptname.sh                  # run it (./ means "look in current folder")
+bash scriptname.sh               # alternative way to run without chmod +x
+
+--- VARIABLES ---
+name="raven"                     # assign a variable (NO spaces around =)
+echo "$name"                     # use $ to access its value
+echo "Hello, $name!"             # variables work inside strings too
+
+--- READING USER INPUT ---
+read -p "Enter your name: " username    # prompt + store input in $username
+echo "Hi, $username"
+
+--- IF / ELSE (basic conditions) ---
+if [ "$var" = "value" ]; then
+    echo "matched"
+else
+    echo "no match"
+fi
+
+--- NUMBER COMPARISON OPERATORS (inside [ ]) ---
+-eq   # equal to
+-ne   # not equal to
+-gt   # greater than
+-lt   # less than
+-ge   # greater than or equal
+-le   # less than or equal
+
+--- STRING COMPARISON OPERATORS (inside [ ]) ---
+=     # strings are equal
+!=    # strings are NOT equal
+-z    # string is empty
+-n    # string is NOT empty
+
+--- FILE TEST OPERATORS (inside [ ]) ---
+-f "file"    # true if file exists and is a regular file
+-d "dir"     # true if directory exists
+-e "path"    # true if path exists (any type)
+
+==========================================
+END OF DAY 12 COMMAND SHEET
+==========================================
