@@ -1,0 +1,47 @@
+==========================================
+DAY 12 NOTES — Shell Scripting Basics
+Date: 12-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- Every bash script starts with #!/bin/bash (the shebang line)
+- Variables: NO spaces around = when assigning (name="raven", not name = "raven")
+- Use $ to ACCESS a variable's value (echo "$name")
+- read -p "prompt: " variable_name lets a script ask for user input
+- if [ condition ]; then ... else ... fi is the basic decision structure
+- MUST have spaces inside [ ] — [ "$x" = "y" ] works, ["$x"="y"] does NOT
+- Scripts need chmod +x before you can run them with ./scriptname.sh
+- -f checks if a file exists, -d checks if a directory exists
+
+COMMANDS I PRACTICED:
+[ ] writing a script with a shebang + variable
+[ ] chmod +x / ./scriptname.sh
+[ ] read -p for user input
+[ ] if/else with string and number comparisons
+[ ] -f file existence check
+
+fill this in after running commands yourself :
+$ chmod +x greet.sh && ./greet.sh
+> 
+
+$ ./check.sh (with if/else number comparison)
+> 
+
+
+CHALLENGES :
+1. My "Bouncer Script" logic (password check):
+   > 
+
+2. My directory checker script logic:
+   > 
+
+3. Fix for "Permission denied" when running a script, and why it happens:
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+TOMORROW'S TOPIC: Day 13 — Shell Scripting: Loops & Functions
+==========================================
