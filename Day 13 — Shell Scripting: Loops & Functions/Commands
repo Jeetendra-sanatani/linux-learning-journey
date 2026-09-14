@@ -1,0 +1,61 @@
+==========================================
+DAY 13 — SHELL SCRIPTING: LOOPS & FUNCTIONS
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- FOR LOOP — over a list of items ---
+for name in raven phoenix ghost; do
+    echo "Hello, $name"
+done
+
+--- FOR LOOP — over a range of numbers ---
+for i in {1..5}; do
+    echo "Number: $i"
+done
+
+--- FOR LOOP — over files matching a pattern ---
+for file in *.txt; do
+    echo "Found: $file"
+done
+
+--- WHILE LOOP — repeat until condition is false ---
+count=1
+while [ $count -le 5 ]; do
+    echo "Count: $count"
+    ((count++))          # IMPORTANT: increment, or you get an infinite loop
+done
+
+--- LOOP CONTROL ---
+break                     # exit the loop immediately
+continue                  # skip to the next iteration
+
+--- DEFINING A FUNCTION ---
+my_function() {
+    echo "This runs when called"
+}
+
+--- FUNCTION WITH ARGUMENTS ---
+greet() {
+    echo "Hello, $1!"      # $1 = first argument passed in
+}
+greet "raven"              # prints: Hello, raven!
+
+--- FUNCTION WITH A CONDITION INSIDE ---
+check_file() {
+    if [ -f "$1" ]; then
+        echo "$1 exists."
+    else
+        echo "$1 is missing."
+    fi
+}
+check_file "notes.txt"
+
+--- CALLING A FUNCTION INSIDE A LOOP ---
+for f in file1.txt file2.txt file3.txt; do
+    check_file "$f"
+done
+
+==========================================
+END OF DAY 13 COMMAND SHEET
+==========================================
