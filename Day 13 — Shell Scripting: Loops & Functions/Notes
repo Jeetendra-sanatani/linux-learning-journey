@@ -1,0 +1,50 @@
+==========================================
+DAY 13 NOTES — Loops & Functions
+Date: 14-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- for loop = repeat for each item in a KNOWN list (names, numbers, files)
+- while loop = repeat UNTIL a condition becomes false
+- {1..5} expands to 1 2 3 4 5 inside a for loop
+- Functions package logic once so you can reuse it without copy-pasting
+- $1, $2, etc. inside a function = the arguments passed to THAT function call
+- Functions must be DEFINED before they're called (bash reads top to bottom)
+- Forgetting to update a while loop's counter causes an infinite loop (Ctrl+C to escape)
+
+COMMANDS I PRACTICED:
+[ ] for loop over a list
+[ ] for loop over a number range {1..5}
+[ ] while loop with a counter
+[ ] defining a function
+[ ] function with an argument ($1)
+[ ] calling a function inside a loop
+
+fill this in after running commands yourself :
+$ ./greet_all.sh (for loop over names)
+> 
+
+$ ./countdown.sh (while loop)
+> 
+
+$ ./check.sh (function with if condition)
+> 
+
+
+CHALLENGES :
+1. My "skip 13" for loop logic:
+   > 
+
+2. My is_number function logic:
+   > 
+
+3. My loop + function combo script (checking 3 files):
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+TOMORROW'S TOPIC: Day 14 — Environment Variables & Shell Config
+==========================================
