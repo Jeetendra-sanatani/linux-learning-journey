@@ -1,0 +1,49 @@
+==========================================
+DAY 14 NOTES — Environment Variables & Shell Config
+Date: 15-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- Environment variables are named values the shell/programs check ($HOME, $USER, $PATH)
+- PATH is a colon-separated list of folders bash searches to find commands
+- export VAR="value" sets a variable, but only for the CURRENT terminal session
+- ~/.bashrc runs every time a new terminal opens — this is where PERMANENT settings go
+- source ~/.bashrc reloads config without needing to close/reopen the terminal
+- Forgetting "export" means child processes/scripts can't see the variable
+- Aliases (like ll='ls -la') are shortcuts, also made permanent via .bashrc
+
+COMMANDS I PRACTICED:
+[ ] echo $HOME / $USER / $PATH
+[ ] export (temporary variable)
+[ ] editing ~/.bashrc
+[ ] source ~/.bashrc
+[ ] adding an alias
+
+fill this in after running commands yourself :
+$ echo $PATH
+> 
+
+$ echo $PATH | tr ':' '\n' | wc -l
+> 
+
+$ source ~/.bashrc (after adding a variable)
+> 
+
+
+CHALLENGES :
+1. Command to count PATH directories:
+   > 
+
+2. Likely cause + fix for "command not found" despite file existing:
+   > 
+
+3. One-line fix to make export TOOL_HOME permanent:
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+TOMORROW'S TOPIC: Day 15 — Text Processing: grep & sed Basics
+==========================================
