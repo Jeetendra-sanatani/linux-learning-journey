@@ -1,0 +1,41 @@
+==========================================
+DAY 14 — ENVIRONMENT VARIABLES & SHELL CONFIG
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- VIEWING ENVIRONMENT VARIABLES ---
+echo $HOME                       # your home directory
+echo $USER                       # current username
+echo $SHELL                      # path to your current shell
+echo $PATH                       # colon-separated list of command-search folders
+env                                # list ALL environment variables
+env | grep <name>                 # search for a specific variable
+printenv PATH                      # alternative way to view a specific variable
+
+--- SETTING A TEMPORARY VARIABLE (this session only) ---
+export MY_VAR="value"             # set and export (visible to child processes)
+echo $MY_VAR                       # confirm it's set
+unset MY_VAR                       # remove a variable
+
+--- MAKING VARIABLES/SETTINGS PERMANENT ---
+nano ~/.bashrc                     # edit your shell config file
+                                    # add lines like: export MY_VAR="value"
+source ~/.bashrc                    # reload config WITHOUT closing terminal
+. ~/.bashrc                          # same as source (shorthand)
+
+--- ADDING TO PATH ---
+export PATH="$PATH:/new/folder"     # add a folder to PATH (temporary)
+                                     # add the same line to ~/.bashrc to make permanent
+
+--- ALIASES (bonus quality-of-life shortcuts) ---
+alias ll='ls -la'                    # create a shortcut command (temporary)
+echo "alias ll='ls -la'" >> ~/.bashrc  # make an alias permanent
+
+--- COUNTING PATH ENTRIES ---
+echo $PATH | tr ':' '\n' | wc -l     # count how many folders are in PATH
+echo $PATH | tr ':' '\n'              # list PATH folders, one per line
+
+==========================================
+END OF DAY 14 COMMAND SHEET
+==========================================
