@@ -1,0 +1,51 @@
+==========================================
+DAY 16 NOTES — Text Processing: awk & Advanced grep
+Date: 13-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- awk splits each line into fields ($1, $2, $3...), $0 = the whole line
+- Default delimiter is whitespace; use -F: (or any character) for custom delimiters
+- awk -F: works great on /etc/passwd since it's colon-separated
+- Conditions filter by column value: awk -F: '$3 >= 1000 {print $1}' = real users only
+- awk 'NR==5' prints line 5; NR>=5 && NR<=10 prints a range of lines
+- grep -E enables OR matching (err|warn|crit) — plain grep treats | as a literal character
+- grep -A/-B/-C show lines After/Before/Context around a match
+
+COMMANDS I PRACTICED:
+[ ] awk '{print $1}' basic column extraction
+[ ] awk -F: with /etc/passwd
+[ ] awk with conditions ($3 >= 1000)
+[ ] awk NR (line number filtering)
+[ ] grep -E / -A / -B
+
+MY OWN OUTPUT (fill this in after running commands yourself):
+$ awk -F: '{print $1}' /etc/passwd | head -5
+> 
+
+$ awk -F: '$3 >= 1000 {print $1}' /etc/passwd
+> 
+
+$ grep -A 2 "Failed password" /var/log/auth.log
+> 
+
+
+CHALLENGES — MY ANSWERS:
+1. awk command for real users only (UID >= 1000):
+   > 
+
+2. awk command for username + shell (field 7):
+   > 
+
+3. grep command showing 2 lines BEFORE each "Failed password" match:
+   > 
+
+
+MISTAKES / ERRORS I HIT TODAY:
+- 
+
+QUESTIONS I STILL HAVE:
+- 
+
+TOMORROW'S TOPIC: Day 17 — Cron Jobs & Task Scheduling
+==========================================
