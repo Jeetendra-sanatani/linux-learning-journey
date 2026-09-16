@@ -1,0 +1,41 @@
+==========================================
+DAY 15 — TEXT PROCESSING: GREP & SED BASICS
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- GREP — USEFUL FLAGS ---
+grep "pattern" file.txt          # basic search, case-sensitive
+grep -i "pattern" file.txt        # case-INSENSITIVE search
+grep -v "pattern" file.txt        # INVERT match (show non-matching lines)
+grep -n "pattern" file.txt        # show line NUMBERS with matches
+grep -c "pattern" file.txt        # COUNT matching lines
+grep -r "pattern" ./folder        # RECURSIVE search through a folder
+
+--- BASIC REGEX PATTERNS (for grep) ---
+^word      # line STARTS WITH "word"
+word$      # line ENDS WITH "word"
+.          # matches ANY single character
+[0-9]      # matches any digit
+^#         # line starts with a # (common for finding comments)
+
+--- SED — PREVIEW (safe, doesn't modify file) ---
+sed 's/old/new/' file.txt          # replace FIRST match per line, print to screen only
+sed 's/old/new/g' file.txt         # replace ALL matches per line, print to screen only
+
+--- SED — ACTUALLY EDITING THE FILE ---
+sed -i 's/old/new/g' file.txt       # edit file IN PLACE (no backup, no undo!)
+sed -i.bak 's/old/new/g' file.txt   # edit file in place, KEEP a .bak backup copy
+
+--- SED — DELETING LINES ---
+sed '/^#/d' file.txt                # delete all lines starting with #
+sed '1d' file.txt                    # delete the first line
+sed '$d' file.txt                     # delete the last line
+sed '/pattern/d' file.txt              # delete any line matching pattern
+
+--- SED — PRINTING SPECIFIC LINES ---
+sed -n '5,10p' file.txt               # print only lines 5 through 10
+
+==========================================
+END OF DAY 15 COMMAND SHEET
+==========================================
