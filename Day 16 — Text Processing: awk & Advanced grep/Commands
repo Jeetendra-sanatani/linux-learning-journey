@@ -1,0 +1,38 @@
+==========================================
+DAY 16 — TEXT PROCESSING: AWK & ADVANCED GREP
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- AWK BASICS (default delimiter = whitespace) ---
+awk '{print $1}' file.txt              # print first column
+awk '{print $1, $3}' file.txt          # print columns 1 and 3
+awk '{print $0}' file.txt               # print the WHOLE line (same as cat)
+
+--- AWK WITH CUSTOM DELIMITER ---
+awk -F: '{print $1}' /etc/passwd        # use : as delimiter, print first field
+awk -F: '{print $1, $3}' /etc/passwd    # username and UID
+awk -F: '{print $1, $7}' /etc/passwd    # username and login shell
+
+--- AWK WITH CONDITIONS (filtering) ---
+awk -F: '$3 >= 1000 {print $1}' /etc/passwd   # real user accounts only (UID >= 1000)
+awk '$4 > 5.0 {print $1, $4}' processes.txt    # example: filter by numeric column value
+
+--- AWK WITH LINE NUMBERS ---
+awk 'NR==5' file.txt                    # print exactly line 5
+awk 'NR>=5 && NR<=10' file.txt          # print lines 5 through 10
+awk '/pattern/ {print}' file.txt         # print lines matching a pattern
+
+--- ADVANCED GREP ---
+grep -E "err|warn|crit" file.txt         # match multiple patterns (OR) — extended regex
+grep -A 3 "pattern" file.txt              # show 3 lines AFTER each match
+grep -B 3 "pattern" file.txt              # show 3 lines BEFORE each match
+grep -C 3 "pattern" file.txt              # show 3 lines BEFORE and AFTER (combined)
+
+--- CHAINING GREP + AWK + SORT ---
+ps aux --sort=-%mem | awk 'NR<=6 {print $1, $4, $11}'   # top memory users, key columns only
+grep "Failed" /var/log/auth.log | awk '{print $(NF-3)}' | sort -u   # unique IPs from failures
+
+==========================================
+END OF DAY 16 COMMAND SHEET
+==========================================
