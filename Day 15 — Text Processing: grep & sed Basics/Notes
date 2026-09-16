@@ -1,0 +1,49 @@
+==========================================
+DAY 15 NOTES — Text Processing: grep & sed
+Date: 12-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- grep -i = case-insensitive, grep -v = invert match (exclude), grep -n = show line numbers
+- grep -c counts matches, grep -r searches recursively through folders
+- Basic regex: ^ = starts with, $ = ends with, . = any character, [0-9] = any digit
+- sed 's/old/new/' by DEFAULT just prints the result — doesn't touch the original file
+- sed -i actually edits the file in place (no undo!) — ALWAYS test without -i first
+- sed -i.bak edits the file but keeps a backup copy automatically
+- sed 's/old/new/g' — the 'g' means replace ALL matches per line, not just the first
+
+COMMANDS I PRACTICED:
+[ ] grep -i / -v / -n / -c
+[ ] grep with basic regex (^ and $)
+[ ] sed 's/old/new/' (preview mode)
+[ ] sed -i.bak (safe in-place editing)
+[ ] sed '/pattern/d' (deleting lines)
+
+fill this in after running commands yourself :
+$ grep -i "error" logfile.txt
+> 
+
+$ sed 's/old/new/' notes.txt (preview, no -i)
+> 
+
+$ sed -i.bak 's/old/new/g' notes.txt
+> 
+
+
+CHALLENGES :
+1. grep command to show only non-comment lines:
+   > 
+
+2. sed command to replace localhost with 127.0.0.1 (with backup):
+   > 
+
+3. Command to find "root" in /etc/passwd with line number:
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+TOMORROW'S TOPIC: Day 16 — Text Processing: awk & Advanced grep
+==========================================
