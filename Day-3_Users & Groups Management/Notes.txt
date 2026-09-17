@@ -1,6 +1,5 @@
 ==========================================
 DAY 03 NOTES — Users & Groups Management
-Date: ___________
 ==========================================
 
 WHAT I LEARNED TODAY:
