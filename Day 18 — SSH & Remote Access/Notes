@@ -1,0 +1,50 @@
+==========================================
+DAY 18 NOTES — SSH & Remote Access
+Date: 15-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- SSH creates an ENCRYPTED tunnel to a remote machine (unlike old Telnet, which was plain text)
+- First connection to a new server asks to trust its fingerprint (saved in ~/.ssh/known_hosts)
+- ssh user@host "command" runs ONE command remotely without a full interactive login
+- scp copies files securely; needs -r for entire folders (like cp)
+- who/w show who's currently logged into a machine
+- SSH (port 22) is a very common brute-force target — this connects back to Day 7's auth.log
+
+COMMANDS I PRACTICED:
+[ ] ssh user@host (basic connection)
+[ ] ssh user@host "command" (single remote command)
+[ ] scp file.txt user@host:/path/
+[ ] scp -r folder/ user@host:/path/
+[ ] who / w
+
+MY OWN OUTPUT (fill this in after running commands yourself):
+$ ssh raven@<test-server-ip> "whoami"
+> 
+
+$ scp notes.txt raven@<test-server-ip>:/home/raven/
+> 
+
+$ who (on the remote machine)
+> 
+
+
+CHALLENGES — MY ANSWERS:
+1. SSH one-liner for df -h without interactive shell:
+   > 
+
+2. scp command to copy an entire project/ folder:
+   > 
+
+3. Two explanations for a fingerprint change warning (one harmless, one concerning):
+   > 
+
+
+MISTAKES / ERRORS I HIT TODAY:
+- 
+
+QUESTIONS I STILL HAVE:
+- 
+
+TOMORROW'S TOPIC: Day 19 — SSH Key-Based Authentication
+==========================================
