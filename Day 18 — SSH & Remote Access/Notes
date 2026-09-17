@@ -18,7 +18,7 @@ COMMANDS I PRACTICED:
 [ ] scp -r folder/ user@host:/path/
 [ ] who / w
 
-MY OWN OUTPUT (fill this in after running commands yourself):
+fill this in after running commands yourself :
 $ ssh raven@<test-server-ip> "whoami"
 > 
 
@@ -29,7 +29,7 @@ $ who (on the remote machine)
 > 
 
 
-CHALLENGES — MY ANSWERS:
+CHALLENGES :
 1. SSH one-liner for df -h without interactive shell:
    > 
 
@@ -40,11 +40,9 @@ CHALLENGES — MY ANSWERS:
    > 
 
 
-MISTAKES / ERRORS I HIT TODAY:
+MISTAKES / ERRORS YOU HIT TODAY:
 - 
 
-QUESTIONS I STILL HAVE:
-- 
 
 TOMORROW'S TOPIC: Day 19 — SSH Key-Based Authentication
 ==========================================
