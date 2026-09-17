@@ -1,0 +1,44 @@
+==========================================
+DAY 17 NOTES — Cron Jobs & Task Scheduling
+Date: 14-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- Cron syntax: minute hour day-of-month month day-of-week (5 fields)
+- * = every, , = list, - = range, / = step
+- crontab -e edits MY personal schedule; crontab -l lists it; crontab -r deletes it all
+- Shortcuts: @reboot, @daily, @hourly, @weekly save typing common patterns
+- Cron runs with a MINIMAL environment — always use FULL paths in commands
+- Always redirect output (>> log 2>&1) or failures happen silently, unnoticed
+
+COMMANDS I PRACTICED:
+[ ] crontab -e / crontab -l / crontab -r
+[ ] writing a basic */1 test cron job
+[ ] writing a @daily or 0 6 * * * schedule
+[ ] combining day-of-week ranges (1-5 for weekdays)
+
+fill this in after running commands yourself :
+$ crontab -e (test job added)
+> 
+
+$ cat cron_test.log (after waiting a few minutes)
+> 
+
+
+CHALLENGES :
+1. Cron schedule for Sat & Sun at 9 AM:
+   > 
+
+2. Common reason cron jobs fail silently + how to debug:
+   > 
+
+3. Cron schedule for every 15 min, 9AM-5PM, Mon-Fri:
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+TOMORROW'S TOPIC: Day 18 — SSH & Remote Access
+==========================================
