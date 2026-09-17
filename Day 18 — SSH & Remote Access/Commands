@@ -1,0 +1,37 @@
+==========================================
+DAY 18 — SSH & REMOTE ACCESS
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- BASIC SSH CONNECTION ---
+ssh username@hostname            # connect to a remote machine
+ssh raven@192.168.1.100           # example with IP address
+exit                               # log out of the remote session, back to local machine
+
+--- RUNNING A SINGLE REMOTE COMMAND (no full login) ---
+ssh user@host "command"                    # run one command, then disconnect
+ssh raven@192.168.1.100 "uptime"
+ssh raven@192.168.1.100 "df -h && free -h" # multiple commands in one call
+
+--- COPYING FILES WITH SCP ---
+scp file.txt user@host:/remote/path/        # send a file TO remote machine
+scp user@host:/remote/file.txt .             # pull a file FROM remote machine
+scp -r folder/ user@host:/remote/path/       # copy an entire FOLDER (needs -r)
+scp -P 2222 file.txt user@host:/path/        # use a custom SSH port
+
+--- CHECKING WHO'S LOGGED IN (run ON the remote/local machine) ---
+who                                # currently logged-in users
+w                                   # logged-in users + what they're doing
+last                                 # login history
+
+--- KNOWN HOSTS FILE ---
+cat ~/.ssh/known_hosts              # see saved fingerprints of servers you've connected to
+                                     # (if a fingerprint changes unexpectedly, investigate before continuing)
+
+--- CUSTOM SSH PORT ---
+ssh -p 2222 user@host                # connect using a non-default port
+
+==========================================
+END OF DAY 18 COMMAND SHEET
+==========================================
