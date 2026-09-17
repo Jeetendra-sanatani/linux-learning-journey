@@ -1,6 +1,5 @@
 ==========================================
 DAY 01 NOTES — Linux Fundamentals
-Date: ___________
 ==========================================
 
 WHAT I LEARNED TODAY:
@@ -23,7 +22,7 @@ COMMANDS I PRACTICED:
 [ ] mkdir / touch / echo / cat
 [ ] pwd / ls / cd
 
-MY OWN OUTPUT (fill this in after running commands yourself):
+fill this in after running commands yourself :
 $ uname -a
 > 
 
@@ -34,7 +33,7 @@ $ id
 > 
 
 
-CHALLENGES — MY ANSWERS:
+CHALLENGES :
 1. Users with /bin/bash shell (from /etc/passwd):
    > 
 
@@ -48,8 +47,6 @@ CHALLENGES — MY ANSWERS:
 MISTAKES / ERRORS I HIT TODAY:
 - 
 
-QUESTIONS I STILL HAVE:
-- 
 
 TOMORROW'S TOPIC: Day 02 — File Permissions & Ownership
 ==========================================
