@@ -1,0 +1,52 @@
+==========================================
+DAY 19 NOTES — SSH Key-Based Authentication
+Date: 17-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- Public key = shareable (like a padlock), Private key = secret (the only matching key)
+- ssh-keygen -t ed25519 generates a modern key pair (private + .pub file)
+- Private key file MUST have 600 permissions — SSH refuses to use it otherwise
+- ssh-copy-id automatically copies your public key to a server's authorized_keys file
+- Once set up, ssh user@host logs in with NO password prompt at all
+- NEVER share your private key — only the .pub file ever leaves your machine
+- Wrong permissions on ~/.ssh (700) or authorized_keys (600) on the server can silently break key login
+
+COMMANDS I PRACTICED:
+[ ] ssh-keygen -t ed25519
+[ ] checking/fixing key permissions with chmod
+[ ] ssh-copy-id
+[ ] confirming passwordless login works
+[ ] viewing public key content with cat
+
+fill this in after running commands yourself :
+$ ssh-keygen -t ed25519 -C "my_email"
+> 
+
+$ ls -la ~/.ssh
+> 
+
+$ ssh-copy-id raven@<test-server-ip>
+> 
+
+$ ssh raven@<test-server-ip> (should now skip password)
+> 
+
+
+CHALLENGES :
+1. Command to fix a 644-permission private key, and why SSH cares:
+   > 
+
+2. Manual command sequence without ssh-copy-id:
+   > 
+
+3. Which key file goes to the remote server, and why the other is dangerous to share:
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+TOMORROW'S TOPIC: Day 20 — File Transfer: scp & rsync
+==========================================
