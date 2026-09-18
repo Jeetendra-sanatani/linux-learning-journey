@@ -1,0 +1,49 @@
+==========================================
+DAY 20 NOTES — File Transfer: scp & rsync
+Date: 18-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- scp re-copies EVERYTHING every time; rsync only transfers what actually CHANGED
+- rsync -a (archive) preserves permissions, timestamps, symlinks — use it basically always
+- rsync -avz is the standard combo: archive + verbose + compress
+- --dry-run PREVIEWS a sync without actually doing it — critical before using --delete
+- --delete makes destination an EXACT mirror of source (removes extra files) — dangerous without dry-run first
+- Trailing slash on SOURCE matters: folder/ copies contents, folder (no slash) copies the folder itself
+- --exclude skips specific files/patterns during a sync
+
+COMMANDS I PRACTICED:
+[ ] scp (recap)
+[ ] rsync -av (local sync)
+[ ] rsync -avz (remote sync over SSH)
+[ ] rsync --dry-run
+[ ] rsync --exclude
+
+fill this in after running commands yourself :
+$ rsync -av practice/ practice_backup/
+> 
+
+$ rsync -av practice/ practice_backup/ (run again, after no changes)
+> 
+
+$ rsync -avz --dry-run practice/ raven@<server>:/home/raven/backup/
+> 
+
+
+CHALLENGES :
+1. rsync command: compressed sync with progress bar to remote backup:
+   > 
+
+2. Safe dry-run preview before a --delete sync:
+   > 
+
+3. rsync command excluding .log files AND a temp/ folder:
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+TOMORROW'S TOPIC: Day 21 — Firewall Basics (ufw)
+==========================================
