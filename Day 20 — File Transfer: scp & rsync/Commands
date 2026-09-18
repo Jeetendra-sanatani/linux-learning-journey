@@ -1,0 +1,42 @@
+==========================================
+DAY 20 — FILE TRANSFER: SCP & RSYNC
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- SCP (quick, simple transfers) ---
+scp file.txt user@host:/path/           # send a file TO remote machine
+scp user@host:/path/file.txt .           # pull a file FROM remote machine
+scp -r folder/ user@host:/path/          # copy an entire folder (needs -r)
+scp -P 2222 file.txt user@host:/path/    # use a custom SSH port
+
+--- RSYNC — BASIC SYNC ---
+rsync -av source/ destination/           # local sync, archive mode + verbose
+rsync -avz source/ user@host:/path/      # sync over SSH, with compression
+
+--- RSYNC — KEY FLAGS ---
+-a    # archive mode — preserves permissions, timestamps, symlinks
+-v    # verbose — show what's happening
+-z    # compress data during transfer
+--progress    # show a progress bar per file
+--dry-run     # PREVIEW changes without actually transferring anything
+
+--- RSYNC — SAFE PREVIEW BEFORE A REAL SYNC ---
+rsync -avz --dry-run source/ user@host:/path/     # see what WOULD happen
+
+--- RSYNC — MIRRORING (removes extra files in destination) ---
+rsync -avz --delete source/ destination/          # DANGEROUS — always --dry-run first!
+rsync -avz --dry-run --delete source/ destination/  # safe preview of a --delete sync
+
+--- RSYNC — EXCLUDING FILES ---
+rsync -avz --exclude="*.log" source/ dest/         # skip .log files
+rsync -avz --exclude="temp/" source/ dest/          # skip a specific subfolder
+rsync -avz --exclude="*.log" --exclude="temp/" source/ dest/  # multiple excludes
+
+--- TRAILING SLASH RULE (important!) ---
+rsync -av folder/ dest/     # copies CONTENTS of folder into dest
+rsync -av folder dest/      # copies the FOLDER ITSELF into dest (creates dest/folder/)
+
+==========================================
+END OF DAY 20 COMMAND SHEET
+==========================================
