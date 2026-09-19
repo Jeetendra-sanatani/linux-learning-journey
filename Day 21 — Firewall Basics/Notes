@@ -1,0 +1,50 @@
+==========================================
+DAY 21 NOTES — Firewall Basics (ufw)
+Date: 19-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- Firewalls decide, rule by rule, what network traffic gets allowed or blocked
+- "Default deny" (block everything, allow only what's needed) is the security-conscious approach
+- ufw allow ssh MUST happen BEFORE ufw enable on a remote server — else instant lockout!
+- ufw allow works by service name (ssh) or port number (22) — both work the same
+- ufw deny <port> adds a blocking rule; ufw delete allow <port> removes a previous allow rule (different things!)
+- ufw allow from <subnet> to any port <port> restricts access to a specific network range
+- ufw logging on lets you see blocked attempts in /var/log/ufw.log
+
+COMMANDS I PRACTICED:
+[ ] ufw status / status verbose
+[ ] ufw allow ssh (BEFORE enabling)
+[ ] ufw enable
+[ ] ufw allow <port> / ufw deny <port>
+[ ] ufw delete allow <port>
+[ ] ufw logging on
+
+fill this in after running commands yourself :
+$ sudo ufw status verbose
+> 
+
+$ sudo ufw allow ssh && sudo ufw enable
+> 
+
+$ sudo ufw allow 80 && sudo ufw status
+> 
+
+
+CHALLENGES :
+1. Safe two-command sequence to enable ufw on a remote SSH server:
+   > 
+
+2. Rule allowing SSH ONLY from 192.168.1.0/24:
+   > 
+
+3. Command to see all active rules including default policies:
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+TOMORROW'S TOPIC: Day 22 — System Monitoring (top, htop, vmstat)
+==========================================
