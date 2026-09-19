@@ -1,0 +1,43 @@
+==========================================
+DAY 21 — FIREWALL BASICS (UFW)
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- CHECKING STATUS ---
+sudo ufw status                  # basic status (active/inactive + rules)
+sudo ufw status verbose          # detailed status including default policies
+sudo ufw status numbered          # rules shown with numbers (useful for deleting by number)
+
+--- ENABLING / DISABLING ---
+sudo ufw enable                   # turn firewall ON (ALLOW SSH FIRST if remote!)
+sudo ufw disable                  # turn firewall OFF entirely
+
+--- ALLOWING TRAFFIC ---
+sudo ufw allow ssh                       # allow by service name
+sudo ufw allow 22                         # allow by port number
+sudo ufw allow 22/tcp                     # allow specific protocol only
+sudo ufw allow 80,443/tcp                 # allow multiple ports at once
+sudo ufw allow from 192.168.1.0/24        # allow an entire subnet, any port
+sudo ufw allow from 192.168.1.0/24 to any port 22   # allow subnet, SPECIFIC port only
+
+--- DENYING / BLOCKING TRAFFIC ---
+sudo ufw deny 23                  # block a port (e.g. Telnet)
+sudo ufw deny from 203.0.113.5     # block a specific IP address entirely
+
+--- REMOVING RULES ---
+sudo ufw delete allow 80                  # remove a previously added ALLOW rule
+sudo ufw status numbered                   # find the rule number first
+sudo ufw delete <number>                    # delete by number (easier for complex rulesets)
+
+--- LOGGING ---
+sudo ufw logging on                        # enable firewall logging
+sudo ufw logging off                        # disable logging
+sudo tail -f /var/log/ufw.log               # watch blocked/allowed traffic live
+
+--- RESETTING (start over completely) ---
+sudo ufw reset                              # removes ALL rules, resets to defaults (use carefully!)
+
+==========================================
+END OF DAY 21 COMMAND SHEET
+==========================================
