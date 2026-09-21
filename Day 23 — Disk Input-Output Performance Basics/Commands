@@ -1,0 +1,33 @@
+==========================================
+DAY 23 — DISK I/O & PERFORMANCE BASICS
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- CHECKING I/O WAIT VIA TOP (recap, new focus) ---
+top                                # watch the "wa" value in %Cpu(s) line
+                                    # high wa% = CPU waiting on disk, not actually idle
+
+--- IOSTAT (detailed per-disk statistics) ---
+sudo apt install sysstat            # install (provides iostat)
+iostat                                # one-time snapshot
+iostat -x 1                           # extended stats, refresh every 1 second
+iostat -x 1 5                          # extended stats, every 1 second, 5 times total
+                                        # %util close to 100 = disk is maxed out
+
+--- IOTOP (like top, but for disk I/O per-process) ---
+sudo apt install iotop               # install
+sudo iotop                            # run (needs root) — shows read/write per process
+                                       # q = quit
+
+--- ROUGH DISK SPEED TEST (with dd) ---
+dd if=/dev/zero of=testfile bs=1M count=100    # write a 100MB test file, shows speed
+rm testfile                                     # ALWAYS clean up the test file after
+
+--- COMBINING WITH DAY 10 (disk usage + performance together) ---
+df -h              # how FULL is the disk (Day 10 recap)
+iostat -x 1 3       # how BUSY is the disk right now
+
+==========================================
+END OF DAY 23 COMMAND SHEET
+==========================================
