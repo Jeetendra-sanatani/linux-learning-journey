@@ -1,0 +1,50 @@
+==========================================
+DAY 22 NOTES — System Monitoring (top, htop, vmstat)
+Date: 20-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- top gives a LIVE, refreshing view of processes and system stats (vs ps aux's one-time snapshot)
+- Load average = how many processes want CPU time, averaged over 1/5/15 minutes
+- Load average only makes sense relative to CPU core count (check with nproc)
+- top keys: M = sort by memory, P = sort by CPU, q = quit, k = kill a process
+- htop is a friendlier, color-coded version of top (needs: sudo apt install htop)
+- vmstat shows system-wide memory/CPU/IO stats over a time window, non-interactive
+- top -bn1 gives a ONE-TIME snapshot — useful in scripts where live refresh doesn't work
+
+COMMANDS I PRACTICED:
+[ ] top (navigating, sorting with M/P)
+[ ] htop (installing and using)
+[ ] vmstat 1 5
+[ ] nproc / lscpu
+[ ] top -bn1 (non-interactive snapshot)
+
+fill this in after running commands yourself :
+$ top (note load average and top process)
+> 
+
+$ nproc
+> 
+
+$ vmstat 1 5
+> 
+
+
+CHALLENGES :
+1. Command for a one-time, non-interactive top snapshot:
+   > 
+
+2. Is a 4-core machine with load average 6.2 overloaded? Why:
+   > 
+
+3. ps aux vs top vs vmstat — when to use each:
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+
+TOMORROW'S TOPIC: Day 23 — Disk I/O & Performance Basics
+==========================================
