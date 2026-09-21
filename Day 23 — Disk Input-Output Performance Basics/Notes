@@ -1,0 +1,48 @@
+==========================================
+DAY 23 NOTES — Disk I/O & Performance Basics
+Date: 23-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- I/O = reading from / writing to storage; "wa" in top = time CPU spends WAITING on disk
+- High "wa" percentage = disk is the bottleneck, not the CPU — a completely different problem
+- iostat -x shows detailed per-disk stats; %util near 100 means the disk is maxed out
+- iotop shows WHICH process is generating the most disk read/write activity right now
+- dd can do a rough write-speed test (dd if=/dev/zero of=testfile bs=1M count=100)
+- ALWAYS delete test files created by dd, and never point dd at a real device path by mistake
+- Low CPU usage doesn't always mean a fast system — disk I/O can be the hidden bottleneck
+
+COMMANDS I PRACTICED:
+[ ] top (watching wa%)
+[ ] iostat -x 1 5
+[ ] iotop
+[ ] dd speed test
+
+fill this in after running commands yourself :
+$ top (note the wa% value)
+> 
+
+$ iostat -x 1 5
+> 
+
+$ sudo iotop (top disk-using process)
+> 
+
+
+CHALLENGES :
+1. Diagnosis for low CPU + high wa%, and next tool to use:
+   > 
+
+2. Command to find the process at fault for 95% disk utilization:
+   > 
+
+3. dd command for a 50MB write speed test, and why to delete it after:
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+TOMORROW'S TOPIC: Day 24 — Symbolic & Hard Links
+==========================================
