@@ -1,0 +1,39 @@
+==========================================
+DAY 22 — SYSTEM MONITORING (TOP, HTOP, VMSTAT)
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- TOP (built-in, no install needed) ---
+top                          # open live process/resource monitor
+                              # keys while running:
+                              #   q = quit
+                              #   M = sort by memory usage
+                              #   P = sort by CPU usage
+                              #   k = kill a process (asks for PID)
+                              #   1 = show individual CPU cores
+
+top -bn1                     # ONE-TIME snapshot, non-interactive (good for scripts/logs)
+top -bn1 | head -15          # snapshot, limited to first 15 lines
+
+--- HTOP (friendlier, needs install) ---
+sudo apt install htop         # install htop
+htop                           # open the color-coded interactive monitor
+                                # F9 = kill process, F6 = sort, q or F10 = quit
+
+--- VMSTAT (system-wide stats, non-interactive) ---
+vmstat                         # one-time snapshot of memory/CPU/IO stats
+vmstat 1                       # refresh every 1 second, continuously (Ctrl+C to stop)
+vmstat 1 5                     # refresh every 1 second, exactly 5 times, then stop
+
+--- CPU INFO FOR CONTEXT ---
+nproc                          # number of CPU cores
+lscpu                           # detailed CPU information
+lscpu | grep "Model name"       # just the CPU model
+
+--- QUICK MEMORY CHECK (recap from Day 1) ---
+free -h                          # human-readable memory usage
+
+==========================================
+END OF DAY 22 COMMAND SHEET
+==========================================
