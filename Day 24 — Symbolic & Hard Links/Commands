@@ -1,0 +1,37 @@
+==========================================
+DAY 24 — SYMBOLIC & HARD LINKS
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- CREATING A SYMBOLIC LINK ---
+ln -s /path/to/original /path/to/link      # create a symlink (shortcut/pointer)
+ln -s original.txt mylink.txt               # example, same directory
+
+--- CREATING A HARD LINK ---
+ln original.txt hardlink.txt                # create a hard link (another name for same data)
+                                             # NOTE: no -s flag for hard links
+
+--- VIEWING LINKS ---
+ls -la                          # symlinks show as: link -> target (with 'l' file type)
+                                 # hard links look like normal files, but link count > 1
+
+readlink mylink.txt              # show what a symlink points to (relative path)
+readlink -f mylink.txt            # show the FULL absolute path it resolves to
+
+--- CHECKING LINK COUNT (for hard links) ---
+ls -la file.txt                   # 2nd column = number of hard links to this data
+stat file.txt                      # detailed info, including "Links:" count
+
+--- REMOVING A LINK (doesn't affect the original) ---
+rm mylink.txt                       # removes just the symlink, original stays intact
+unlink mylink.txt                    # alternative to rm, specifically for links
+
+--- KEY BEHAVIOR DIFFERENCES ---
+# Symlink:  breaks if original is deleted; can cross filesystems; can link to directories
+# Hard link: survives original deletion (data stays until ALL links removed);
+#            CANNOT cross filesystems; CANNOT link to directories
+
+==========================================
+END OF DAY 24 COMMAND SHEET
+==========================================
