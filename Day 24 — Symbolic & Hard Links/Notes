@@ -1,0 +1,49 @@
+==========================================
+DAY 24 NOTES — Symbolic & Hard Links
+Date: 22-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- Symlink (ln -s) = a pointer to a PATH, like a shortcut — breaks if the original is deleted
+- Hard link (ln, no -s) = another name for the SAME DATA — survives original deletion
+- ls -la shows symlinks as "link -> target" with an 'l' at the start of permissions
+- Hard links look like normal files but have a link count > 1 in ls -la's 2nd column
+- readlink -f shows the full absolute path a symlink resolves to
+- Symlinks can cross filesystems and link to directories; hard links CANNOT do either
+- Data behind a hard link only truly disappears once ALL hard links to it are removed
+
+COMMANDS I PRACTICED:
+[ ] ln -s (creating a symlink)
+[ ] ln (creating a hard link)
+[ ] ls -la (spotting link type and count)
+[ ] readlink -f
+[ ] testing deletion behavior for both link types
+
+fill this in after running commands yourself :
+$ ln -s original.txt mylink.txt && ls -la
+> 
+
+$ rm original.txt && cat mylink.txt (should be broken)
+> 
+
+$ ln realfile.txt hardlink.txt && rm realfile.txt && cat hardlink.txt (should still work)
+> 
+
+
+CHALLENGES :
+1. What happens if you delete config.txt and recreate it, then read the symlink:
+   > 
+
+2. Command to see full absolute path a symlink "shortcut" resolves to:
+   > 
+
+3. Symlink or hard link for a safety copy that survives deletion, and why:
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+TOMORROW'S TOPIC: Day 25 — Finding Files: find & locate
+==========================================
