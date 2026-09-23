@@ -1,0 +1,48 @@
+==========================================
+DAY 25 — FINDING FILES: FIND & LOCATE
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- FIND BY NAME ---
+find ~ -name "filename"              # exact filename, in home directory
+find / -name "*.conf" 2>/dev/null    # pattern match, system-wide, hide errors
+find . -iname "*.TXT"                 # case-INSENSITIVE name match
+
+--- FIND BY TYPE ---
+find . -type f            # only regular files
+find . -type d             # only directories
+find . -type l              # only symbolic links
+
+--- FIND BY SIZE ---
+find . -size +100M         # larger than 100MB
+find . -size -1k           # smaller than 1KB
+find / -size +1G 2>/dev/null   # files larger than 1GB, system-wide
+
+--- FIND BY MODIFICATION TIME ---
+find . -mtime -7           # modified in the LAST 7 days
+find . -mtime +30           # modified MORE than 30 days ago
+find . -mmin -60             # modified in the last 60 MINUTES
+
+--- FIND EMPTY FILES/FOLDERS ---
+find . -empty                # empty files and directories
+
+--- FIND + EXEC (run a command on each result) ---
+find . -name "*.log" -exec rm {} \;              # delete each match (one call per file)
+find . -name "*.sh" -exec chmod +x {} \;          # make each match executable
+find . -name "*.log" -exec wc -l {} \;             # count lines in each match
+find . -name "*.tmp" -exec rm {} +                 # same as above, but batched (faster)
+
+--- SAFE PRACTICE: preview before deleting ---
+find ~/practice -name "*.tmp"                       # see what WOULD be found first
+find ~/practice -name "*.tmp" -exec rm {} \;         # THEN delete, once confirmed
+
+--- LOCATE (fast, database-based) ---
+sudo apt install mlocate         # install locate if not present
+sudo updatedb                     # refresh the locate database (run before important searches)
+locate filename                    # instant search
+locate -i "readme"                  # case-insensitive search
+
+==========================================
+END OF DAY 25 COMMAND SHEET
+==========================================
