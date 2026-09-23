@@ -1,0 +1,47 @@
+==========================================
+DAY 25 NOTES — Finding Files: find & locate
+Date: 23-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- find searches LIVE through the filesystem — accurate but can be slower
+- locate searches a PRE-BUILT DATABASE — nearly instant but can be slightly outdated
+- sudo updatedb refreshes locate's database before an important/current search
+- find filters: -name, -type (f/d/l), -size (+/-), -mtime (+/-), -empty
+- find -exec {} \; runs a command on EACH result — very powerful, also destructive if misused
+- ALWAYS run find alone first (without -exec rm) to preview results before deleting anything
+
+COMMANDS I PRACTICED:
+[ ] find -name (basic search)
+[ ] find -type / -size / -mtime
+[ ] find -exec (running a command on results)
+[ ] locate (after updatedb)
+
+fill this in after running commands yourself :
+$ find ~ -name "notes.txt"
+> 
+
+$ find ~ -mtime -1
+> 
+
+$ locate notes.txt (after sudo updatedb)
+> 
+
+
+CHALLENGES :
+1. find command to delete all .tmp files in ~/practice:
+   > 
+
+2. find command for empty files/directories:
+   > 
+
+3. Why locate is faster than find (architectural difference):
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+TOMORROW'S TOPIC: Day 26 — Regular Expressions in Linux
+==========================================
