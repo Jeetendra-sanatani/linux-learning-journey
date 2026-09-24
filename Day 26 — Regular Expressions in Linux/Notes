@@ -1,0 +1,49 @@
+==========================================
+DAY 26 NOTES — Regular Expressions in Linux
+Date: 24-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- . matches ANY character; \. matches a LITERAL dot (escaping matters!)
+- + = one or more, ? = zero or one, {n} = exactly n times — all need grep -E
+- [0-9] = any digit, [a-z] = any lowercase letter, [^0-9] = NOT a digit
+- grep -E (extended regex) avoids the need to escape +, ?, {} — almost always use -E
+- grep -Eo extracts JUST the matched text, not the whole line
+- Combining a regex pattern + sort -u = list of UNIQUE matches (great for IP extraction)
+- Today's IP pattern is simplified — real validation regex is more complex
+
+COMMANDS I PRACTICED:
+[ ] grep with character classes [abc], [0-9]
+[ ] grep -E with +, ?, {}
+[ ] grep -Eo (extracting matches)
+[ ] building an IP address pattern
+[ ] sed -E for pattern-based replacement
+
+fill this in after running commands yourself :
+$ echo "Order #45231" | grep -Eo "[0-9]+"
+> 
+
+$ grep -Eo "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" /var/log/auth.log | sort -u
+> 
+
+$ echo "Contact: 9876543210" | sed -E 's/[0-9]{10}/[REDACTED]/'
+> 
+
+
+CHALLENGES :
+1. grep -Eo command to extract 45231 and 12 from a mixed-text line:
+   > 
+
+2. Command to extract all unique IPs from auth.log:
+   > 
+
+3. sed -E command to redact a 10-digit phone number:
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+TOMORROW'S TOPIC: Day 27 — Basic Linux Hardening Checklist
+==========================================
