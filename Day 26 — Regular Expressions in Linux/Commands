@@ -1,0 +1,45 @@
+==========================================
+DAY 26 — REGULAR EXPRESSIONS IN LINUX
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- CORE REGEX BUILDING BLOCKS ---
+^        # start of line
+$        # end of line
+.        # any single character
+*        # previous character, zero or more times
++        # previous character, one or more times (needs -E)
+?        # previous character, zero or one time (needs -E)
+[abc]    # any ONE of a, b, or c
+[0-9]    # any single digit
+[a-z]    # any single lowercase letter
+[^0-9]   # NOT a digit (^ inside [] = negation)
+{3}      # previous char/group, EXACTLY 3 times (needs -E)
+{1,3}    # previous char/group, between 1 and 3 times (needs -E)
+\.       # a LITERAL dot (escaped, since plain . means "any character")
+
+--- BASIC GREP EXAMPLES ---
+grep "[cb]at" file.txt              # matches "cat" or "bat"
+grep "file[0-9]" file.txt            # matches file0 through file9
+
+--- EXTENDED GREP (-E) FOR +, ?, {} ---
+grep -E "colou?r" file.txt           # matches "color" OR "colour"
+grep -Eo "[0-9]+" file.txt            # extract ALL digit sequences from text
+grep -E "[0-9]{10}" file.txt          # match exactly 10 digits in a row
+
+--- MATCHING AN IP ADDRESS (simplified pattern) ---
+grep -E "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" logfile.txt
+grep -Eo "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" logfile.txt | sort -u
+   # -o extracts JUST the match, sort -u gives unique IPs
+
+--- MATCHING A SIMPLE EMAIL-LIKE PATTERN ---
+grep -Eo "[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+" file.txt
+
+--- USING REGEX WITH SED ---
+sed -E 's/[0-9]{10}/[REDACTED]/' file.txt         # replace a 10-digit number
+sed -E 's/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/[IP REDACTED]/g' file.txt
+
+==========================================
+END OF DAY 26 COMMAND SHEET
+==========================================
