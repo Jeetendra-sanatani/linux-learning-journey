@@ -1,0 +1,36 @@
+==========================================
+DAY 28 — LOG ANALYSIS FOR SECURITY
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- STEP 1: CONFIRM FAILED ATTEMPTS EXIST ---
+sudo grep -c "Failed password" /var/log/auth.log
+
+--- STEP 2: EXTRACT UNIQUE IPS FROM FAILED ATTEMPTS ---
+sudo grep "Failed password" /var/log/auth.log | \
+  grep -Eo "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" | sort -u
+
+--- STEP 3: COUNT ATTEMPTS PER IP (find worst offender) ---
+sudo grep "Failed password" /var/log/auth.log | \
+  grep -Eo "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" | \
+  sort | uniq -c | sort -rn
+
+--- STEP 4: CHECK IF A SUSPICIOUS IP EVER SUCCEEDED ---
+sudo grep "203.0.113.5" /var/log/auth.log | grep "Accepted"
+
+--- STEP 5: FULL TIMELINE FOR A SPECIFIC IP ---
+sudo grep "203.0.113.5" /var/log/auth.log
+
+--- STEP 6: QUICK SUMMARY ONE-LINERS ---
+echo "Total failed attempts: $(sudo grep -c 'Failed password' /var/log/auth.log)"
+sudo grep "Failed password" /var/log/auth.log | \
+  grep -Eo "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" | \
+  sort | uniq -c | sort -rn | head -1     # top offending IP
+
+--- BONUS: COUNT SUCCESSFUL LOGINS TOO ---
+sudo grep -c "Accepted password" /var/log/auth.log
+
+==========================================
+END OF DAY 28 COMMAND SHEET
+==========================================
