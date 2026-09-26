@@ -1,0 +1,48 @@
+==========================================
+DAY 28 NOTES — Log Analysis for Security
+Date: 26-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- Real investigation = confirm activity exists -> identify source -> count frequency -> check for success
+- "47 failures then 1 success from the same IP" is a textbook brute-force compromise pattern
+- Combining grep + regex (Day 26) + sort/uniq -c gives a ranked list of worst-offending IPs
+- Always check for "Accepted password" from a suspicious IP to confirm/rule out compromise
+- Building a full timeline (grep "<ip>" auth.log) shows the complete story of an IP's activity
+- A repeatable process (checklist or script) beats manually eyeballing logs each time
+
+COMMANDS I PRACTICED:
+[ ] grep -c "Failed password" (confirm activity)
+[ ] grep + regex extraction of IPs
+[ ] sort | uniq -c | sort -rn (ranking offenders)
+[ ] checking for "Accepted password" from a specific IP
+[ ] building a full timeline for one IP
+
+fill this in after running commands yourself :
+$ sudo grep -c "Failed password" /var/log/auth.log
+> 
+
+$ (IP ranking command output)
+> 
+
+$ (checking if top offender ever succeeded)
+> 
+
+
+CHALLENGES :
+1. Full command chain from auth.log to ranked IP list:
+   > 
+
+2. Command to check if 203.0.113.5 ever had a successful login:
+   > 
+
+3. My mini script printing total attempts, unique IPs, top offender:
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+TOMORROW'S TOPIC: Day 29 — Mini Project: System Health Dashboard Script
+==========================================
