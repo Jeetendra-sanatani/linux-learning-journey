@@ -1,0 +1,42 @@
+==========================================
+DAY 27 — BASIC LINUX HARDENING CHECKLIST
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- STEP 1: SUID BINARY CHECK (Day 8) ---
+find / -perm -4000 -type f 2>/dev/null
+   # review every result — unexpected SUID binaries are a red flag
+
+--- STEP 2: WORLD-WRITABLE FILES (Day 2) ---
+find / -perm -002 -type f 2>/dev/null | grep -v "^/proc"
+   # ideally returns nothing important
+
+--- STEP 3: USER ACCOUNTS & SUDO ACCESS (Day 3) ---
+awk -F: '$3 >= 1000 {print $1}' /etc/passwd     # list real user accounts
+getent group sudo                                 # list everyone with sudo access
+
+--- STEP 4: SSH CONFIGURATION (Day 18-19) ---
+sudo grep "PermitRootLogin" /etc/ssh/sshd_config          # should be 'no'
+sudo grep "PasswordAuthentication" /etc/ssh/sshd_config   # ideally 'no' (with SSH keys set up)
+
+--- STEP 5: FIREWALL STATUS (Day 21) ---
+sudo ufw status verbose
+   # should be active, default deny incoming, minimal ports allowed
+
+--- STEP 6: PENDING UPDATES (Day 9) ---
+sudo apt update
+apt list --upgradable
+   # apply updates regularly — unpatched software is a common attack vector
+
+--- STEP 7: FAILED LOGIN CHECK (Day 7) ---
+sudo grep -c "Failed password" /var/log/auth.log
+   # a high/rising count could indicate brute-force attempts
+
+--- COMBINING CHECKS IN ONE GO ---
+find / -perm -4000 -type f 2>/dev/null && getent group sudo
+   # chain any two checks with && for a quick combined report
+
+==========================================
+END OF DAY 27 COMMAND SHEET
+==========================================
