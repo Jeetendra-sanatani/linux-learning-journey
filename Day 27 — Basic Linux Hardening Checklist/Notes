@@ -1,0 +1,50 @@
+==========================================
+DAY 27 NOTES — Basic Linux Hardening Checklist
+Date: 25-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- Hardening = many small consistent checks, not one big fix
+- Today's checklist combines: SUID check (Day 8), world-writable files (Day 2),
+  sudo access review (Day 3), SSH config (Day 18-19), firewall status (Day 21),
+  pending updates (Day 9), failed login count (Day 7)
+- PermitRootLogin should be 'no' regardless of password strength — reduces attack surface
+- Disable PasswordAuthentication ONLY after confirming SSH key login works (avoid lockout!)
+- A clean check today doesn't guarantee clean tomorrow — hardening is a ROUTINE
+
+COMMANDS I PRACTICED:
+[ ] find -perm -4000 (SUID check)
+[ ] find -perm -002 (world-writable check)
+[ ] getent group sudo (sudo access review)
+[ ] grep on sshd_config (SSH hardening check)
+[ ] ufw status verbose (firewall check)
+[ ] apt list --upgradable (patch check)
+
+fill this in after running commands yourself :
+$ find / -perm -4000 -type f 2>/dev/null
+> 
+
+$ getent group sudo
+> 
+
+$ sudo ufw status verbose
+> 
+
+
+CHALLENGES :
+1. My preferred order for running these 6 checks, and why:
+   > 
+
+2. Why /usr/bin/find having SUID root would be a serious red flag:
+   > 
+
+3. My combined one-liner using 2 checks together:
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+TOMORROW'S TOPIC: Day 28 — Log Analysis for Security
+==========================================
