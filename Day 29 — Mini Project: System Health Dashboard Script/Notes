@@ -1,0 +1,42 @@
+==========================================
+DAY 29 NOTES — Mini Project: System Health Dashboard
+Date: 27-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- A real script organizes commands into FUNCTIONS, one per logical section
+- main() at the bottom calls every function in order — easy to read, easy to extend
+- Adding a new check later just means adding ONE new function + one call in main()
+- printf '=%.0s' {1..50} is a trick to print a repeated character divider line
+- This script combines knowledge from Day 1 (system info), Day 4/22 (processes),
+  Day 5 (network), Day 10 (disk), Day 12-13 (scripting structure)
+- Functions must be DEFINED before they're called (bash reads top to bottom)
+
+COMMANDS I PRACTICED:
+[ ] writing a multi-function script
+[ ] chmod +x and running the full script
+[ ] redirecting output with > and tee
+[ ] scheduling the script with cron
+
+fill this in after running the script yourself :
+$ ./health_dashboard.sh
+> (paste your full output or a summary here)
+
+
+CHALLENGES :
+1. My security_check() function (sudo group + firewall status):
+   > 
+
+2. My modification to auto-save output to ~/dashboard_reports/:
+   > 
+
+3. My cron entry to run this daily at 7 AM:
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+TOMORROW'S TOPIC: Day 30 — FINAL PROJECT: Automated Backup Script + Journal Wrap-Up
+==========================================
