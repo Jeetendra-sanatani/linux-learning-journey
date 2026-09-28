@@ -1,0 +1,42 @@
+==========================================
+DAY 30 — FINAL PROJECT: AUTOMATED BACKUP SCRIPT
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- RUNNING THE SCRIPT ---
+chmod +x backup.sh                 # make it executable
+./backup.sh                         # run a backup now
+
+--- CHECKING RESULTS ---
+ls -lh ~/backups                    # list backups with sizes
+cat ~/backups/backup.log            # read the backup log
+tail -5 ~/backups/backup.log        # last 5 log lines
+
+--- LOOKING INSIDE A BACKUP (Day 11) ---
+tar -tzf ~/backups/backup_<date>.tar.gz          # list contents without extracting
+
+--- TESTING A RESTORE ---
+mkdir /tmp/restore_test
+tar -xzf ~/backups/backup_<date>.tar.gz -C /tmp/restore_test
+ls /tmp/restore_test/practice
+
+--- KEY COMMANDS USED INSIDE THE SCRIPT ---
+date +%F_%H-%M                      # timestamp for filenames (2025-09-24_14-00)
+tar -czf <file> -C <dir> <name>      # create compressed archive
+tar -tzf <file> > /dev/null 2>&1     # verify archive is readable
+du -h <file> | awk '{print $1}'      # human-readable size only
+find <dir> -name "backup_*.tar.gz" -mtime +7 -exec rm {} \;   # delete backups older than 7 days
+tee -a <logfile>                     # print to screen AND append to log
+
+--- SCHEDULING WITH CRON (Day 17) ---
+crontab -e
+0 2 * * * /home/raven/backup.sh >> /home/raven/backups/cron.log 2>&1
+crontab -l                           # confirm it was saved
+
+--- OFF-DISK COPY (Day 20) ---
+rsync -avz ~/backups/ user@host:/path/to/remote/backups/
+
+==========================================
+END OF DAY 30 COMMAND SHEET
+==========================================
