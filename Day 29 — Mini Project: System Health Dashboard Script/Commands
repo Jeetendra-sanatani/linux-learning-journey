@@ -1,0 +1,35 @@
+==========================================
+DAY 29 — MINI PROJECT: SYSTEM HEALTH DASHBOARD
+Commands Reference Sheet
+Machine: Kali Linux | User: raven
+==========================================
+
+--- RUNNING THE SCRIPT ---
+chmod +x health_dashboard.sh        # make it executable (Day 2/12 concept)
+./health_dashboard.sh                # run it
+
+--- REDIRECTING OUTPUT TO A FILE ---
+./health_dashboard.sh > report.txt              # save output to a file (overwrites)
+./health_dashboard.sh >> report.txt              # APPEND to a file instead
+./health_dashboard.sh | tee report.txt            # save to file AND see it on screen
+
+--- DATED REPORT FILENAME ---
+./health_dashboard.sh > report_$(date +%F).txt    # e.g. report_2025-08-27.txt
+
+--- SCHEDULING WITH CRON (Day 17 recap) ---
+crontab -e
+# add this line to run daily at 7 AM, saving to a dated log:
+0 7 * * * /home/raven/health_dashboard.sh > /home/raven/dashboard_reports/report_$(date +\%F).txt 2>&1
+
+--- SCRIPT STRUCTURE USED (recap of the pattern) ---
+divider()        # helper function — prints a line separator
+system_info()     # Day 1 commands wrapped in a function
+memory_check()     # Day 1/22 commands wrapped in a function
+disk_check()        # Day 10 commands wrapped in a function
+top_processes()      # Day 4/22 commands wrapped in a function
+network_info()        # Day 5 commands wrapped in a function
+main()                 # calls every function above, in order
+
+==========================================
+END OF DAY 29 COMMAND SHEET
+==========================================
