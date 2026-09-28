@@ -1,0 +1,66 @@
+==========================================
+DAY 30 NOTES — Final Project + Journey Wrap-Up
+Date: 28-09-2026
+==========================================
+
+WHAT I LEARNED TODAY:
+- A real backup script: create, VERIFY, log, clean up old backups
+- tar -tzf proves an archive is readable without extracting it
+- tee -a prints to screen AND appends to a log file
+- find -mtime +N -exec rm removes old backups automatically
+- A backup is only proven good after a successful restore test
+- Backups on the same disk don't protect against disk failure — copy off-machine too (rsync/scp)
+- In crontab, % must be written as \%
+
+COMMANDS I PRACTICED:
+[ ] ran backup.sh successfully
+[ ] inspected the archive with tar -tzf
+[ ] restored into /tmp/restore_test
+[ ] added the cron entry
+
+fill this in after running the script yourself :
+$ ./backup.sh
+> 
+
+$ ls -lh ~/backups
+> 
+
+$ tar -tzf ~/backups/backup_<date>.tar.gz
+> 
+
+
+CHALLENGES :
+1. Script modified to take source folder as argument:
+   > 
+
+2. Failure alert (FAILED.txt) logic:
+   > 
+
+3. --list option to show existing backups:
+   > 
+
+
+MISTAKES / ERRORS YOU HIT TODAY:
+- 
+
+
+
+==========================================
+JOURNEY REFLECTION (30 days)
+==========================================
+The 3 topics You are most confident in now:
+1. 
+2. 
+3. 
+
+The 3 topics YOU want to revisit:
+1. 
+2. 
+3. 
+
+Most useful command YOU learned:
+> 
+
+
+NEXT PHASE: Networking tools -> Sysadmin tools -> Cybersecurity tools -> Cloud/DevOps -> Git advanced
+==========================================
