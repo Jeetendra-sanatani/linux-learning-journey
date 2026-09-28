@@ -38,18 +38,42 @@ network_info() {
     ss -tuln | grep LISTEN
 }
 
+security_check() {
+    echo "SECURITY CHECK"
+    divider
+
+    echo "Failed login attempts:"
+    sudo journalctl --no-pager | grep -Ei 'failed password|authentication failure' | wc -l
+
+    echo ""
+    echo "SUID files:"
+    sudo find / -type f -perm -4000 2>/dev/null | wc -l
+
+    echo ""
+    echo "Firewall status:"
+    sudo ufw status | head -1
+}
+
 main() {
     echo "SYSTEM HEALTH DASHBOARD — $(date)"
     divider
+
     system_info
     echo ""
+
     memory_check
     echo ""
+
     disk_check
     echo ""
+
     top_processes
     echo ""
+
     network_info
+    echo ""
+
+    security_check
 }
 
 main
